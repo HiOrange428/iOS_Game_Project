@@ -51,7 +51,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
         player.startFiring()
     }
     func createEnemy() {
-        
         let topSpawnPiontY = self.frame.maxY
         let buttomSpawnPointY = self.frame.minY
         let distenceOfSpawnPointY = topSpawnPiontY - buttomSpawnPointY
@@ -71,9 +70,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         switch collision {
+// player been hit
         case categoryBitMask_player | categoryBitMask_enemiesBullets:
             contact.bodyB.node?.removeFromParent()
             self.player.healthBarChanging(changedValue: -200)
+// player hits enemy
         case categoryBitMask_playerBullets | categoryBitMask_enemies:
             if contact.bodyA.categoryBitMask == categoryBitMask_enemies{
                 if let targetName = contact.bodyA.node?.name {
@@ -81,6 +82,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
                         //print(self.enemies[index].nodeName)
                         if  self.enemies[index].healthBarChanging(changedValue: -self.player.bulletDamage) <= 0 {
                             enemies.remove(at: index)
+                            if targetName.hasPrefix("shark") {
+                                self.boss?.sharkRemain -= 1
+                            }
                         }
                     }
                 }
@@ -106,8 +110,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
                 contact.bodyA.node?.removeFromParent()
             }
         case categoryBitMask_player | categoryBitMask_bossAttack:
-            self.player.healthBarChanging(changedValue: -200)
-            print("blast hit")
+            self.player.healthBarChanging(changedValue: -400)
+            print("boss skill hit")
         default:
             print("為什麼是這裡")
             break

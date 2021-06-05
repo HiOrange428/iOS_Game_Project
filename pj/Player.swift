@@ -98,7 +98,7 @@ class Player {
         return newHP
     }
     func startFiring(){
-        self.fire = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(playerFire), userInfo: nil, repeats: true)
+        self.fire = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(self.playerFire), userInfo: nil, repeats: true)
         self.isFiring = true
         player.texture = sheet.Amelia_Amelia_fly_normal_fire()
     }
