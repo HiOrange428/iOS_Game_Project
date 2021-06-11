@@ -22,6 +22,7 @@
 		389228A8266596A500C75F96 /* Boss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389228A7266596A500C75F96 /* Boss.swift */; };
 		58618B032671EDFC00D27FE1 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58618B012671EDFC00D27FE1 /* Asset.swift */; };
 		58618B042671EDFC00D27FE1 /* Asset.atlasc in Resources */ = {isa = PBXBuildFile; fileRef = 58618B022671EDFC00D27FE1 /* Asset.atlasc */; };
+		58618B062673260E00D27FE1 /* GameUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58618B052673260E00D27FE1 /* GameUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		389228A7266596A500C75F96 /* Boss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boss.swift; sourceTree = "<group>"; };
 		58618B012671EDFC00D27FE1 /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Asset.swift; path = ../../Asset.swift; sourceTree = "<group>"; };
 		58618B022671EDFC00D27FE1 /* Asset.atlasc */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Asset.atlasc; path = ../../Asset.atlasc; sourceTree = "<group>"; };
+		58618B052673260E00D27FE1 /* GameUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameUI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				3861203C26426B31003BDCF8 /* Info.plist */,
 				380CB397264511C9004088B7 /* JDGamePaddle.swift */,
 				380CB39926451E98004088B7 /* Player.swift */,
+				58618B052673260E00D27FE1 /* GameUI.swift */,
 				3821C039264A532400DF296D /* Enemy.swift */,
 				389228A7266596A500C75F96 /* Boss.swift */,
 			);
@@ -176,6 +179,7 @@
 				3861202B26426B30003BDCF8 /* AppDelegate.swift in Sources */,
 				380CB39A26451E98004088B7 /* Player.swift in Sources */,
 				58618B032671EDFC00D27FE1 /* Asset.swift in Sources */,
+				58618B062673260E00D27FE1 /* GameUI.swift in Sources */,
 				380CB398264511C9004088B7 /* JDGamePaddle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,8 +19,6 @@ class Player {
     var isFiring: Bool
     let healthPointMaxValue: CGFloat = 2000
     var healthPoint: CGFloat = 2000
-    let healthBarFrame = SKSpriteNode()
-    let healthBarRemaining = SKShapeNode()
     var bulletDamage: CGFloat = 500
     var currentDirection = 0
     init(forScene scene:SKScene){
@@ -39,7 +37,6 @@ class Player {
         scene.addChild(player)
         
         isFiring = false
-        self.healthBarRendering()
     }
     func moveBy(vector: CGVector){
         let moveAction = SKAction.move(by: vector, duration: 0.02)
@@ -67,35 +64,13 @@ class Player {
         self.player.addChild(bullet)
     }
     
-    func healthBarRendering(){
-        let width = (self.toRender.frame.maxX-self.toRender.frame.minX)/3
-        let height = CGFloat(50.0)
-        self.healthBarFrame.texture = self.sheet.UI_healthBarFrame()
-        //self.healthBarFrame.anchorPoint = CGPoint(x: 1, y:0)
-        self.healthBarFrame.size = CGSize(width: width+16, height: height)
-        self.healthBarFrame.name = "healthBarFrame"
-        self.healthBarFrame.position = CGPoint(x: self.toRender.frame.minX + 22 + (width/2), y: self.toRender.frame.maxY - 15)
-        //self.healthBarFrame.position = CGPoint(x: self.toRender.frame.midX, y: self.toRender.frame.midY)
-        self.healthBarRemaining.path = CGPath(rect: CGRect(x: 0, y: CGFloat(-10), width: width, height: 10), transform: nil)
-        self.healthBarRemaining.strokeColor = UIColor.clear
-        self.healthBarRemaining.fillColor = UIColor.systemGreen
-        self.healthBarRemaining.name = "healthBarRemaining"
-        self.healthBarRemaining.position = CGPoint(x: self.toRender.frame.minX + 21, y: self.toRender.frame.maxY - 10)
-        self.healthBarRemaining.zPosition = 20
-        self.healthBarFrame.zPosition = 20
-        self.toRender.addChild(healthBarFrame)
-        self.toRender.addChild(healthBarRemaining)
-    }
-    func healthBarChanging(changedValue: CGFloat) -> CGFloat{
+    func healthChanging(changedValue: CGFloat) -> CGFloat{
         var newHP = self.healthPoint + changedValue
         if newHP > self.healthPointMaxValue { newHP = self.healthPointMaxValue }
+        self.toRender.gameUI.healthBarChanging(newHP: newHP)
         if (newHP > 0) {
-            let width = (self.toRender.frame.maxX-self.toRender.frame.minX)/3
-            let height = CGFloat(10.0)
-            self.healthBarRemaining.path = CGPath(rect: CGRect(x: 0, y: CGFloat(-height), width: width * (newHP / healthPointMaxValue), height: height), transform: nil)
             self.healthPoint = newHP
         } else {
-            healthBarRemaining.isHidden = true
             print("you are dead")
             stopFiring()
             //else dead
@@ -160,9 +135,7 @@ class Player {
         self.player.removeAction(forKey: "Backward")
     }
     
-    
     @objc func playerFire(){
         self.newBullet()
-    }
-    
+    }    
 }

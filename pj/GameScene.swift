@@ -15,6 +15,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     var player: Player!
     var enemies = [Enemy]()
     var boss: Boss?
+    var gameUI: GameUI!
     var enemyCountInEachWave = [0, 1]
     var inBossFight: Bool = false
     var wave = 1
@@ -44,12 +45,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
         background.alpha = 0.7
         background.zPosition = -1
         self.addChild(background)
-        paddle = JDGamePaddle(forScene: self, size:CGSize(width: 200, height: 200), position: CGPoint(x: self.frame.minX + 80.0, y: self.frame.minY + 80.0))
-        paddle.delegate = self
-        player = Player(forScene: self)
+        self.paddle = JDGamePaddle(forScene: self, size:CGSize(width: 200, height: 200), position: CGPoint(x: self.frame.minX + 80.0, y: self.frame.minY + 80.0))
+        self.paddle.delegate = self
+        self.player = Player(forScene: self)
         self.keepDetectMove = Timer.scheduledTimer(timeInterval: 0.03, target: self, selector: #selector(keepMove), userInfo: nil, repeats: true)
         self.newCloud()
         self.GenerateCloud = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(newCloud), userInfo: nil, repeats: true)
+        self.gameUI = GameUI(forScene: self, forPlayer: self.player)
         createEnemy()
         player.startFiring()
     }
@@ -82,7 +84,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
 // player been hit
         case categoryBitMask_player | categoryBitMask_enemiesBullets:
             contact.bodyB.node?.removeFromParent()
-            self.player.healthBarChanging(changedValue: -200)
+            self.player.healthChanging(changedValue: -200)
 // player hits enemy
         case categoryBitMask_playerBullets | categoryBitMask_enemies:
             if contact.bodyA.categoryBitMask == categoryBitMask_enemies{
@@ -123,7 +125,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
             }
         case categoryBitMask_player | categoryBitMask_bossAttack:
             if let damage = self.boss?.attackDamage {
-                self.player.healthBarChanging(changedValue: -damage)
+                self.player.healthChanging(changedValue: -damage)
                 print("boss skill hit")
             }
 //            print(contact.bodyB.node?.name as Any)
