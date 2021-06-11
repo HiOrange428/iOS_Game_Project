@@ -28,7 +28,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     public let categoryBitMask_enemiesBullets: UInt32 = 0x1 << 4
     public let categoryBitMask_boss: UInt32 = 0x1 << 5
     public let categoryBitMask_bossAttack: UInt32 = 0x1 << 6
-    
+    //var skill_Sprint_icon: FTButtonNode
     func getVector(vector: CGVector) {
         accelerationVector = vector
     }
@@ -54,6 +54,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
         self.gameUI = GameUI(forScene: self, forPlayer: self.player)
         createEnemy()
         player.startFiring()
+        
+    }
+    
+    @objc func test(){
+        print("hi")
     }
     func createEnemy() {
         let topSpawnPiontY = self.frame.maxY
@@ -128,7 +133,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
                 self.player.healthChanging(changedValue: -damage)
                 print("boss skill hit")
             }
-//            print(contact.bodyB.node?.name as Any)
         default:
             print("為什麼是這裡")
             break
@@ -143,6 +147,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
                 createBoss()
             }
         }
+    }
+    
+    func levelComplete(){
+        
     }
     
     @objc func newCloud(){
@@ -202,6 +210,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
         } else if accelerationVector.dx < 2.2 && accelerationVector.dx > -2.2 && self.player.currentDirection != 0{
             self.player.flyVertical()
         }
+    }
+    
+    @objc func c_shadowSprint(){
+        self.player.shadowSprint()
+    }
+    
+    @objc func c_healing(){
+        self.player.healing()
+    }
+    
+    @objc func c_buff(){
+        self.player.buff()
     }
 }
 

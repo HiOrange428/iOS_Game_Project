@@ -29,6 +29,7 @@ class Boss {
         self.nodeName = nodeName
         loadTexture()
         self.boss.position = nodePosition
+        self.boss.name = "boss"
         self.boss.physicsBody = SKPhysicsBody(rectangleOf:CGSize(width: 30, height: 51.6))
         self.boss.physicsBody?.categoryBitMask = self.toRender.categoryBitMask_boss
         self.boss.physicsBody?.collisionBitMask = self.toRender.categoryBitMask_boss
@@ -94,14 +95,30 @@ class Boss {
     }
     
     func distroyed() {
-        
         self.toRender.enemies.forEach{element in
             element.distroyed()
         }
+        
         self.toRender.enemies.removeAll()
+        var toRemove = [SKNode]()
+        self.toRender.children.forEach({
+            if let flag = $0.name?.hasPrefix("Gura"){
+                if flag == true{
+                    toRemove.append($0)
+                }
+            } else if let flag = $0.name?.hasPrefix("bullet"){
+                if flag == true{
+                    toRemove.append($0)
+                }
+            }
+        })
+        self.toRender.removeChildren(in: toRemove)
+        //print(toRender.children)
         self.skillTimer?.invalidate()
         self.boss.removeFromParent()
     }
+    
+    
     
     func poseidonBlast(castingCount: Int){
         if let playerPosition = self.toRender.childNode(withName: "player")?.position{
@@ -116,13 +133,13 @@ class Boss {
             blast.position = CGPoint(x: -24, y: 0)
             blast.anchorPoint = CGPoint(x: 1, y: 0)
             blast.zPosition = 3
-            blast.name = "blast"
+            blast.name = "Gura_blast"
             blast.alpha = 1
             
             blastCore.position = CGPoint(x: -16, y: -6)
             blastCore.anchorPoint = CGPoint(x: 1, y: 0)
             blastCore.zPosition = 4
-            blastCore.name = "blastCore"
+            blastCore.name = "Gura_blastCore"
             blastCore.alpha = 0
             
             attackWarning.path = CGPath(rect: CGRect(x: -(width + 16), y: 0, width: width, height: height), transform: nil)
@@ -130,7 +147,7 @@ class Boss {
             attackWarning.strokeColor = UIColor.clear
             attackWarning.position = CGPoint(x: 0, y: 0)
             attackWarning.zPosition = 2
-            attackWarning.name = "warning"
+            attackWarning.name = "Gura_warning"
             attackWarning.alpha = 0
             
             blast.physicsBody = SKPhysicsBody(rectangleOf: blast.size)
@@ -198,7 +215,7 @@ class Boss {
             trident.zPosition = 9
             trident.zRotation = +CGFloat.pi/3
             trident.alpha = 0
-            trident.name = "trident"
+            trident.name = "Gura_trident"
             
             let attackWarning = SKShapeNode(circleOfRadius: 100)
             attackWarning.alpha = 0
@@ -206,14 +223,14 @@ class Boss {
             attackWarning.strokeColor = UIColor.clear
             attackWarning.position = playerPosition
             attackWarning.zPosition = 3
-            attackWarning.name = "warning"
+            attackWarning.name = "Gura_warning"
             
             let attackArea = SKSpriteNode(texture: sheet.Gura_Skill_round_vortex_frame0000(), size: CGSize(width: 200, height: 200))
             attackArea.alpha = 1
             let textureCycle = SKAction.animate(with: sheet.Gura_Skill_round_vortex_frame(), timePerFrame: 0.02)
             attackArea.position = attackWarning.position
             attackArea.zPosition = 4
-            attackArea.name = "area"
+            attackArea.name = "Gura_area"
             
             attackArea.physicsBody = SKPhysicsBody(circleOfRadius: 100)
             attackArea.physicsBody?.usesPreciseCollisionDetection = true
@@ -265,7 +282,7 @@ class Boss {
             for i in 1 ... 2{
                 let position = CGPoint(x: self.toRender.frame.maxX - 100,y: topSpawnPiontY - (distenceOfSpawnPointY * CGFloat(i) / CGFloat(2 + 1)))
                 portal.position = position
-                portal.name = "portal\(i)"
+                portal.name = "Gura_portal\(i)"
                 portals.append(portal.copy() as! SKSpriteNode)
                 self.toRender.addChild(portals[i-1])
                 let shark = Enemy(forScene: self.toRender, name: "shark\(i)", position: position, type: EnemyType.shark)

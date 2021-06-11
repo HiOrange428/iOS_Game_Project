@@ -20,9 +20,10 @@
 		3861203B26426B31003BDCF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3861203926426B31003BDCF8 /* LaunchScreen.storyboard */; };
 		389228902664DA0800C75F96 /* background_city_sunset.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3892288F2664DA0800C75F96 /* background_city_sunset.jpg */; };
 		389228A8266596A500C75F96 /* Boss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389228A7266596A500C75F96 /* Boss.swift */; };
-		58618B032671EDFC00D27FE1 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58618B012671EDFC00D27FE1 /* Asset.swift */; };
-		58618B042671EDFC00D27FE1 /* Asset.atlasc in Resources */ = {isa = PBXBuildFile; fileRef = 58618B022671EDFC00D27FE1 /* Asset.atlasc */; };
 		58618B062673260E00D27FE1 /* GameUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58618B052673260E00D27FE1 /* GameUI.swift */; };
+		58618B082673360A00D27FE1 /* FTButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58618B072673360A00D27FE1 /* FTButtonNode.swift */; };
+		58618B0B26735AE600D27FE1 /* Asset.atlasc in Resources */ = {isa = PBXBuildFile; fileRef = 58618B0926735AE600D27FE1 /* Asset.atlasc */; };
+		58618B0C26735AE600D27FE1 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58618B0A26735AE600D27FE1 /* Asset.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,9 +42,10 @@
 		3861203C26426B31003BDCF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3892288F2664DA0800C75F96 /* background_city_sunset.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background_city_sunset.jpg; sourceTree = "<group>"; };
 		389228A7266596A500C75F96 /* Boss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boss.swift; sourceTree = "<group>"; };
-		58618B012671EDFC00D27FE1 /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Asset.swift; path = ../../Asset.swift; sourceTree = "<group>"; };
-		58618B022671EDFC00D27FE1 /* Asset.atlasc */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Asset.atlasc; path = ../../Asset.atlasc; sourceTree = "<group>"; };
 		58618B052673260E00D27FE1 /* GameUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameUI.swift; sourceTree = "<group>"; };
+		58618B072673360A00D27FE1 /* FTButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTButtonNode.swift; sourceTree = "<group>"; };
+		58618B0926735AE600D27FE1 /* Asset.atlasc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Asset.atlasc; sourceTree = "<group>"; };
+		58618B0A26735AE600D27FE1 /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +78,8 @@
 		3861202926426B30003BDCF8 /* pj */ = {
 			isa = PBXGroup;
 			children = (
-				58618B022671EDFC00D27FE1 /* Asset.atlasc */,
-				58618B012671EDFC00D27FE1 /* Asset.swift */,
+				58618B0926735AE600D27FE1 /* Asset.atlasc */,
+				58618B0A26735AE600D27FE1 /* Asset.swift */,
 				3892288F2664DA0800C75F96 /* background_city_sunset.jpg */,
 				3861202A26426B30003BDCF8 /* AppDelegate.swift */,
 				3861202C26426B30003BDCF8 /* GameScene.sks */,
@@ -91,6 +93,7 @@
 				380CB397264511C9004088B7 /* JDGamePaddle.swift */,
 				380CB39926451E98004088B7 /* Player.swift */,
 				58618B052673260E00D27FE1 /* GameUI.swift */,
+				58618B072673360A00D27FE1 /* FTButtonNode.swift */,
 				3821C039264A532400DF296D /* Enemy.swift */,
 				389228A7266596A500C75F96 /* Boss.swift */,
 			);
@@ -157,7 +160,7 @@
 			files = (
 				3861203626426B30003BDCF8 /* Main.storyboard in Resources */,
 				3861202D26426B30003BDCF8 /* GameScene.sks in Resources */,
-				58618B042671EDFC00D27FE1 /* Asset.atlasc in Resources */,
+				58618B0B26735AE600D27FE1 /* Asset.atlasc in Resources */,
 				389228902664DA0800C75F96 /* background_city_sunset.jpg in Resources */,
 				3861203826426B31003BDCF8 /* Assets.xcassets in Resources */,
 				3861203B26426B31003BDCF8 /* LaunchScreen.storyboard in Resources */,
@@ -174,11 +177,12 @@
 			files = (
 				3861203126426B30003BDCF8 /* GameScene.swift in Sources */,
 				3861203326426B30003BDCF8 /* GameViewController.swift in Sources */,
+				58618B0C26735AE600D27FE1 /* Asset.swift in Sources */,
 				3821C03A264A532400DF296D /* Enemy.swift in Sources */,
+				58618B082673360A00D27FE1 /* FTButtonNode.swift in Sources */,
 				389228A8266596A500C75F96 /* Boss.swift in Sources */,
 				3861202B26426B30003BDCF8 /* AppDelegate.swift in Sources */,
 				380CB39A26451E98004088B7 /* Player.swift in Sources */,
-				58618B032671EDFC00D27FE1 /* Asset.swift in Sources */,
 				58618B062673260E00D27FE1 /* GameUI.swift in Sources */,
 				380CB398264511C9004088B7 /* JDGamePaddle.swift in Sources */,
 			);
