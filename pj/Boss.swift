@@ -285,7 +285,7 @@ class Boss {
                 portal.name = "Gura_portal\(i)"
                 portals.append(portal.copy() as! SKSpriteNode)
                 self.toRender.addChild(portals[i-1])
-                let shark = Enemy(forScene: self.toRender, name: "shark\(i)", position: position, type: EnemyType.shark)
+                let shark = Enemy(forScene: self.toRender, name: "shark\(i)", position: position, type: .shark)
                 self.toRender.enemies.append(shark)
                 sharkRemain += 1
             }

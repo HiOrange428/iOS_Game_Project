@@ -184,6 +184,7 @@ class Player {
         effect.name = "buff_effect"
         effect.run(textureCycle, withKey: "buff_aura")
         print("Buff_triggered")
+        self.toRender.gameUI.disableSkill(type: .Buff)
         player.addChild(effect)
     }
     @objc func buffOver(){
