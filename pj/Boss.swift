@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 
 class Boss {
-    let sheet = character_texture()
+    let sheet = Asset()
     var boss: SKSpriteNode!
     let toRender: GameScene
     let nodeName: String
@@ -18,6 +18,7 @@ class Boss {
     var healthPoint: CGFloat = 12000
     let healthBarFrame = SKShapeNode()
     let healthBarRemaining = SKShapeNode()
+    var attackDamage: CGFloat = 400
     var invincible: Bool = true
     var skillTimer: Timer?
     var skillRunning: Bool = false
@@ -36,11 +37,12 @@ class Boss {
         self.enterSceneActions()
     }
     func loadTexture(){
-        self.boss = SKSpriteNode(texture: sheet.Gura_gura_1(),size: CGSize(width: 60, height: 60))
+        self.boss = SKSpriteNode(texture: sheet.Gura_1(),size: CGSize(width: 60, height: 60))
         self.boss.alpha = 1
-        self.boss!.run(SKAction.repeatForever(SKAction.animate(with: sheet.Gura_gura_(), timePerFrame: 0.3)))
-        
+        let textureCycle = SKAction.repeatForever(SKAction.animate(with: sheet.Gura(), timePerFrame: 0.3))
+        self.boss!.run(textureCycle, withKey: "normal_fly")
     }
+    
     func getPosition() ->CGPoint {
         return self.boss.position
     }
@@ -92,8 +94,13 @@ class Boss {
     }
     
     func distroyed() {
-        skillTimer?.invalidate()
-        boss.removeFromParent()
+        
+        self.toRender.enemies.forEach{element in
+            element.distroyed()
+        }
+        self.toRender.enemies.removeAll()
+        self.skillTimer?.invalidate()
+        self.boss.removeFromParent()
     }
     
     func poseidonBlast(castingCount: Int){
@@ -101,19 +108,28 @@ class Boss {
             self.skillRunning = true
             let width = toRender.frame.size.width
             let height: CGFloat = 20
-            self.boss.texture = sheet.Gura_gura_trident()
-            let blast = SKSpriteNode(texture: sheet.skill_beam(), size: CGSize(width: 10, height: height))
+            self.boss.removeAction(forKey: "normal_fly")
+            self.boss.texture = sheet.Gura_trident()
+            let blast = SKSpriteNode(texture: sheet.Gura_Skill_beam(), size: CGSize(width: 10, height: height))
+            let blastCore = SKSpriteNode(texture: sheet.Gura_Skill_beamCore(), size: CGSize(width: 32, height: 32))
             let attackWarning = SKShapeNode()
-            blast.position = CGPoint(x: -16, y: 0)
+            blast.position = CGPoint(x: -24, y: 0)
             blast.anchorPoint = CGPoint(x: 1, y: 0)
-            blast.zPosition = 4
+            blast.zPosition = 3
             blast.name = "blast"
-            blast.alpha = 0
+            blast.alpha = 1
+            
+            blastCore.position = CGPoint(x: -16, y: -6)
+            blastCore.anchorPoint = CGPoint(x: 1, y: 0)
+            blastCore.zPosition = 4
+            blastCore.name = "blastCore"
+            blastCore.alpha = 0
             
             attackWarning.path = CGPath(rect: CGRect(x: -(width + 16), y: 0, width: width, height: height), transform: nil)
             attackWarning.fillColor = UIColor.red
+            attackWarning.strokeColor = UIColor.clear
             attackWarning.position = CGPoint(x: 0, y: 0)
-            attackWarning.zPosition = 3
+            attackWarning.zPosition = 2
             attackWarning.name = "warning"
             attackWarning.alpha = 0
             
@@ -130,17 +146,19 @@ class Boss {
             let wait = SKAction.wait(forDuration: 0.6)
             
             let fadeIn = SKAction.fadeIn(withDuration: 0.15)
+            //let fadeIn2 = SKAction.fadeIn(withDuration: 0.05)
             let fade03 = SKAction.fadeAlpha(to: 0.3, duration: 0.1)
             let fadeOut = SKAction.fadeOut(withDuration: 0.15)
-            let seq = SKAction.sequence([/*repeatCasting,*/ fadeIn, wait, fadeOut, SKAction.removeFromParent()])
+            let seq = SKAction.sequence([wait, fadeOut, SKAction.removeFromParent()])
+            let seq2 = SKAction.sequence([SKAction.wait(forDuration:0.3) ,fadeIn, SKAction.wait(forDuration:0.8), fadeOut, SKAction.removeFromParent()])
+            blastCore.run(seq2)
             //self.toRender.addChild(attackWarning)
             self.boss.addChild(attackWarning)
             self.boss.run(moveToTargetY, completion:{
                 attackWarning.run(fade03)
-//                print("added")
+                self.boss.addChild(blastCore)
                 self.boss.run(wait, completion:{
                     attackWarning.removeFromParent()
-//                    print("removed")
                     self.boss.addChild(blast)
                     for i in 1 ... Int(ceil(width/100)){
                         blast.run(casting)
@@ -153,12 +171,15 @@ class Boss {
                         blast.physicsBody?.collisionBitMask = self.toRender.categoryBitMask_bossAttack
                         blast.physicsBody?.contactTestBitMask = self.toRender.categoryBitMask_bossAttack | self.toRender.categoryBitMask_player
                     }
+                    
                     blast.run(seq, completion: {
-                        print("Blast wave:\(castingCount)")
+//                        print("Blast wave:\(castingCount)")
                         if(castingCount<4){
                              self.poseidonBlast(castingCount: castingCount+1)
                         } else {
                             self.skillRunning = false
+                            let textureCycle = SKAction.repeatForever(SKAction.animate(with: self.sheet.Gura(), timePerFrame: 0.3))
+                            self.boss!.run(textureCycle, withKey: "normal_fly")
                         }
                     })
                 })
@@ -169,25 +190,27 @@ class Boss {
     func throwingTrident() {
         if let playerPosition = self.toRender.childNode(withName: "player")?.position{
             self.skillRunning = true
-            let trident = SKShapeNode()
-            trident.path = CGPath(rect: CGRect(x: -40, y: -10, width: 80, height: 20), transform: nil)
-            trident.fillColor = UIColor.systemTeal
+            self.boss.removeAction(forKey: "normal_fly")
+            self.boss.texture = sheet.Gura_handout()
+            let trident = SKSpriteNode(texture: sheet.Gura_Skill_trident())
+            trident.size = CGSize(width: (trident.texture?.size().width)!/2, height: (trident.texture?.size().height)!/2) 
             trident.position = self.boss.position
             trident.zPosition = 9
-            trident.zRotation = -CGFloat.pi/3
+            trident.zRotation = +CGFloat.pi/3
             trident.alpha = 0
             trident.name = "trident"
             
             let attackWarning = SKShapeNode(circleOfRadius: 100)
             attackWarning.alpha = 0
             attackWarning.fillColor = UIColor.red
+            attackWarning.strokeColor = UIColor.clear
             attackWarning.position = playerPosition
             attackWarning.zPosition = 3
             attackWarning.name = "warning"
             
-            let attackArea = SKShapeNode(circleOfRadius: 100)
+            let attackArea = SKSpriteNode(texture: sheet.Gura_Skill_round_vortex_frame0000(), size: CGSize(width: 200, height: 200))
             attackArea.alpha = 1
-            attackArea.fillColor = UIColor.green
+            let textureCycle = SKAction.animate(with: sheet.Gura_Skill_round_vortex_frame(), timePerFrame: 0.02)
             attackArea.position = attackWarning.position
             attackArea.zPosition = 4
             attackArea.name = "area"
@@ -201,22 +224,25 @@ class Boss {
             attackArea.physicsBody?.contactTestBitMask = self.toRender.categoryBitMask_bossAttack | self.toRender.categoryBitMask_player
             
             let wait = SKAction.wait(forDuration: 1.2)
-            let fadeIn = SKAction.fadeIn(withDuration: 0.15)
+            let fadeIn = SKAction.fadeIn(withDuration: 0.3)
             let fade03 = SKAction.fadeAlpha(to: 0.3, duration: 0.1)
-            let fadeOut = SKAction.fadeOut(withDuration: 0.15)
+            //let fadeOut = SKAction.fadeOut(withDuration: 0.15)
             let moveToTarget = SKAction.move(to: attackWarning.position, duration: 0.3)
             let seq = SKAction.sequence([/*repeatCasting,*/ fadeIn, wait])
             self.toRender.addChild(trident)
             self.toRender.addChild(attackWarning)
             trident.run(seq)
             attackWarning.run(SKAction.sequence([fade03, wait]), completion: {
-                trident.zRotation = atan((attackWarning.position.y - trident.position.y)/(attackWarning.position.x - trident.position.x))
+                trident.zRotation = atan((attackWarning.position.y - trident.position.y)/(attackWarning.position.x - trident.position.x)) + CGFloat.pi / 2
                 trident.run(moveToTarget, completion: {
                     attackWarning.run(SKAction.removeFromParent())
                     trident.run(SKAction.removeFromParent())
                     self.toRender.addChild(attackArea)
-                    attackArea.run(fadeOut, completion: {
+                    attackArea.run(textureCycle, completion: {
+                        attackArea.removeFromParent()
                         self.skillRunning = false
+                        let textureCycle = SKAction.repeatForever(SKAction.animate(with: self.sheet.Gura(), timePerFrame: 0.3))
+                        self.boss!.run(textureCycle, withKey: "normal_fly")
                     })
                 })
             })
@@ -229,8 +255,20 @@ class Boss {
             let topSpawnPiontY = self.toRender.frame.maxY
             let buttomSpawnPointY = self.toRender.frame.minY
             let distenceOfSpawnPointY = topSpawnPiontY - buttomSpawnPointY
+            var portals = [SKSpriteNode]()
+            let portal = SKSpriteNode(texture: sheet.Gura_Skill_Portal_1())
+            portal.alpha = 0
+            portal.zPosition = 3
+            portal.size = CGSize(width: 55, height: 90)
+            let textureCycle = SKAction.repeatForever(SKAction.animate(with: sheet.Gura_Skill_Portal(), timePerFrame: 0.1))
+            portal.run(SKAction.sequence([SKAction.fadeAlpha(to: 1, duration: 0.15), textureCycle]), withKey: "summonning")
             for i in 1 ... 2{
-                let shark = Enemy(forScene: self.toRender, name: "shark\(i)", position: CGPoint(x: self.toRender.frame.maxX + 40,y: topSpawnPiontY - (distenceOfSpawnPointY * CGFloat(i) / CGFloat(2 + 1))), type: EnemyType.ghost)
+                let position = CGPoint(x: self.toRender.frame.maxX - 100,y: topSpawnPiontY - (distenceOfSpawnPointY * CGFloat(i) / CGFloat(2 + 1)))
+                portal.position = position
+                portal.name = "portal\(i)"
+                portals.append(portal.copy() as! SKSpriteNode)
+                self.toRender.addChild(portals[i-1])
+                let shark = Enemy(forScene: self.toRender, name: "shark\(i)", position: position, type: EnemyType.shark)
                 self.toRender.enemies.append(shark)
                 sharkRemain += 1
             }
@@ -239,6 +277,10 @@ class Boss {
             let seq = SKAction.sequence([moveToCenter, wait])
             self.boss.run(seq, completion:{
                 self.skillRunning = false
+                portals.forEach{ element in
+                    element.removeAction(forKey: "summonning")
+                    element.removeFromParent()
+                }
             })
         }
     }
@@ -246,7 +288,7 @@ class Boss {
     @objc func tryCastingSkill(){
         if skillRunning { return }
         else{
-            print("SP:\(skillParameter)")
+            print("SR:\(sharkRemain)")
             switch self.skillParameter {
             case 1:
                 poseidonBlast(castingCount: 1)

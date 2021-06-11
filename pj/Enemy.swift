@@ -12,14 +12,17 @@ import SpriteKit
 enum EnemyType {
     case bat
     case ghost
-    
+    case shark
 }
 
 class Enemy {
-    let sheet = character_texture()
+    let sheet = Asset()
     var enemy :SKSpriteNode?
     let toRender: GameScene
     let nodeName: String
+    let bodyHitBox = SKPhysicsBody(circleOfRadius: 20)
+    let textureSize = CGSize(width: 60, height: 60)
+    
     let healthPointMaxValue: CGFloat = 2000
     var healthPoint: CGFloat = 2000
     let healthBarFrame = SKShapeNode()
@@ -29,38 +32,64 @@ class Enemy {
     var fire: Timer?
     
     init(forScene scene: SKScene, name nodeName: String, position nodePosition: CGPoint, type: EnemyType){
-        //enemy = SKShapeNode(circleOfRadius: 20)
         toRender = scene as! GameScene
-        // the node name must be unique at the same time
+        // the nodeName must be unique at the same time
         self.nodeName = nodeName
         self.enemyType = type
-        loadTexture()
+        self.loadTexture()
        
-        enemy!.name = nodeName
-        enemy!.position = nodePosition
-        enemy!.physicsBody = SKPhysicsBody(circleOfRadius: 20)
-        enemy!.physicsBody?.categoryBitMask = self.toRender.categoryBitMask_enemies
-        enemy!.physicsBody?.collisionBitMask = self.toRender.categoryBitMask_enemies
-        enemy!.physicsBody?.contactTestBitMask = self.toRender.categoryBitMask_enemies | self.toRender.categoryBitMask_playerBullets
+        self.enemy!.name = nodeName
+        self.enemy!.position = nodePosition
+        
+        self.enemy!.physicsBody = self.bodyHitBox
+        self.enemy!.physicsBody?.categoryBitMask = self.toRender.categoryBitMask_enemies
+        self.enemy!.physicsBody?.collisionBitMask = self.toRender.categoryBitMask_enemies
+        self.enemy!.physicsBody?.contactTestBitMask = self.toRender.categoryBitMask_enemies | self.toRender.categoryBitMask_playerBullets
         //scene.addChild(enemy!)
         self.healthBarRendering()
-        enemy!.zPosition = 10
-        enterSceneActions()
-        //fire = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(enemyFire), userInfo: nil, repeats: true)
-        // let selfDistruct = Timer.scheduledTimer(timeInterval: 16, target: self, selector: #selector(distroyed), userInfo: nil, repeats: false)
+        self.enemy!.zPosition = 10
+        self.enterSceneActions()
     }
+    
     func loadTexture(){
-        enemy = SKSpriteNode(texture: sheet.enemy_bat_bat_1(),size: CGSize(width: 60, height: 60))
-        enemy!.alpha = 1
-        enemy!.run(SKAction.repeatForever(SKAction.animate(with: sheet.enemy_bat_bat_(), timePerFrame: 0.2)))
+        print(enemyType)
+        switch enemyType {
+        case EnemyType.bat:
+            self.enemy = SKSpriteNode(texture: sheet.Enemy_Bat_1(),size: self.textureSize)
+            self.enemy!.run(SKAction.repeatForever(SKAction.animate(with: sheet.Enemy_Bat(), timePerFrame: 0.2)))
+        case EnemyType.ghost:
+            self.enemy = SKSpriteNode(texture: sheet.Enemy_Ghost_1(),size: self.textureSize)
+            self.enemy!.run(SKAction.repeatForever(SKAction.animate(with: sheet.Enemy_Ghost(), timePerFrame: 0.2)))
+        case EnemyType.shark:
+            self.enemy = SKSpriteNode(texture: sheet.Enemy_Bloop_1(),size: self.textureSize)
+            self.enemy!.run(SKAction.repeatForever(SKAction.animate(with: sheet.Enemy_Bloop(), timePerFrame: 0.2)))
+        default:
+            break
+        }
+        if self.enemyType == EnemyType.shark { self.enemy?.alpha = 0 }
+        else {self.enemy?.alpha = 1}
     }
+    
+    func enterSceneActions(){
+        var moveInToScreen = SKAction()
+        if self.enemyType == EnemyType.shark {
+            moveInToScreen = SKAction.fadeIn(withDuration: 3)
+        } else {
+            moveInToScreen = SKAction.move(by: CGVector(dx: -100,dy: 0), duration: 2)
+        }
+        enemy!.run(moveInToScreen, completion: {self.fire = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.enemyFire), userInfo: nil, repeats: true)})
+        self.toRender.addChild(self.enemy!)
+    }
+    
     func moveBy(vector: CGVector){
         let moveAction = SKAction.move(by: vector, duration: 0.02)
         self.enemy!.run(moveAction)
     }
+    
     func getPosition() ->CGPoint {
         return self.enemy!.position
     }
+    
     func newBullet(dx: CGFloat, dy: CGFloat){
         let bullet = SKShapeNode()
         bullet.path = CGPath(rect: CGRect(x: -4, y: -2, width: 8, height: 4), transform: nil)
@@ -81,11 +110,6 @@ class Enemy {
         bullet.zPosition = 5
         bullet.run(fire)
         self.toRender.addChild(bullet)
-    }
-    func enterSceneActions(){
-        let moveInToScreen = SKAction.move(by: CGVector(dx: -100,dy: 0), duration: 2)
-        enemy!.run(moveInToScreen, completion: {self.fire = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.enemyFire), userInfo: nil, repeats: true)})
-        self.toRender.addChild(self.enemy!)
     }
     
     func healthBarRendering(){
@@ -108,6 +132,7 @@ class Enemy {
         self.enemy!.addChild(healthBarFrame)
         self.enemy!.addChild(healthBarRemaining)
     }
+    
     func healthBarChanging(changedValue: CGFloat) -> CGFloat{
         let newHP = self.healthPoint + changedValue
         if (newHP > 0) {
@@ -127,12 +152,9 @@ class Enemy {
     }
     
     @objc func enemyFire(){
-        //if self.nodeName != "test1" || self.nodeName != "test\(self.countInOneWave)"{
-            self.newBullet(dx: -800, dy: 200)
-            self.newBullet(dx: -800, dy: -200)
-        //}
-       
+        self.newBullet(dx: -800, dy: 200)
+        self.newBullet(dx: -800, dy: -200)
         self.newBullet(dx: -800, dy: 0)
-       //print(nodeName)
+        //print(nodeName)
     }
 }

@@ -10,6 +10,7 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
+    let sheet = Asset()
     var paddle:JDGamePaddle!
     var player: Player!
     var enemies = [Enemy]()
@@ -19,6 +20,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     var wave = 1
     var accelerationVector = CGVector(dx: 0, dy: 0)
     private var keepDetectMove: Timer?
+    private var GenerateCloud: Timer?
     public let categoryBitMask_player: UInt32 = 0x1 << 1
     public let categoryBitMask_enemies: UInt32 = 0x1 << 2
     public let categoryBitMask_playerBullets: UInt32 = 0x1 << 3
@@ -28,7 +30,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     
     func getVector(vector: CGVector) {
         accelerationVector = vector
-        //self.player.moveBy(vector: vector)
     }
     
     override func didMove(to view: SKView) {
@@ -46,7 +47,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
         paddle = JDGamePaddle(forScene: self, size:CGSize(width: 200, height: 200), position: CGPoint(x: self.frame.minX + 80.0, y: self.frame.minY + 80.0))
         paddle.delegate = self
         player = Player(forScene: self)
-        self.keepDetectMove = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(keepMove), userInfo: nil, repeats: true)
+        self.keepDetectMove = Timer.scheduledTimer(timeInterval: 0.03, target: self, selector: #selector(keepMove), userInfo: nil, repeats: true)
+        self.newCloud()
+        self.GenerateCloud = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(newCloud), userInfo: nil, repeats: true)
         createEnemy()
         player.startFiring()
     }
@@ -54,16 +57,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
         let topSpawnPiontY = self.frame.maxY
         let buttomSpawnPointY = self.frame.minY
         let distenceOfSpawnPointY = topSpawnPiontY - buttomSpawnPointY
+        let type: EnemyType
+        if wave % 2 == 0{
+            type = .bat
+        } else {
+            type = .ghost
+        }
         if (wave < enemyCountInEachWave.count){
             for i in 1 ... enemyCountInEachWave[wave]{
-                let enemy = Enemy(forScene: self, name: "test\(i)", position: CGPoint(x: self.frame.maxX + 40,y: topSpawnPiontY - (distenceOfSpawnPointY * CGFloat(i) / CGFloat(enemyCountInEachWave[wave] + 1))), type: EnemyType.bat)
+                let enemy = Enemy(forScene: self, name: "enemy\(i)", position: CGPoint(x: self.frame.maxX + 40,y: topSpawnPiontY - (distenceOfSpawnPointY * CGFloat(i) / CGFloat(enemyCountInEachWave[wave] + 1))), type: type)
                 enemies.append(enemy)
             }
         }
     }
     
     func createBoss() {
-        print(CGPoint(x: self.frame.maxX + 40, y: self.frame.midY))
+        print(CGPoint(x: self.frame.maxX + 60, y: self.frame.midY))
         self.boss = Boss(forScene: self, name: "gura", position: CGPoint(x: self.frame.maxX + 40, y: self.frame.midY))
     }
     
@@ -95,6 +104,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
                         //print(self.enemies[index].nodeName)
                         if self.enemies[index].healthBarChanging(changedValue: -self.player.bulletDamage) <= 0 {
                             enemies.remove(at: index)
+                            if targetName.hasPrefix("shark") {
+                                self.boss?.sharkRemain -= 1
+                            }
                         }
                     }
                 }
@@ -110,8 +122,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
                 contact.bodyA.node?.removeFromParent()
             }
         case categoryBitMask_player | categoryBitMask_bossAttack:
-            self.player.healthBarChanging(changedValue: -400)
-            print("boss skill hit")
+            if let damage = self.boss?.attackDamage {
+                self.player.healthBarChanging(changedValue: -damage)
+                print("boss skill hit")
+            }
+//            print(contact.bodyB.node?.name as Any)
         default:
             print("為什麼是這裡")
             break
@@ -126,6 +141,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
                 createBoss()
             }
         }
+    }
+    
+    @objc func newCloud(){
+        let deltaY = CGFloat.random(in: 0...(self.frame.maxY - self.frame.midY)*(2/3))
+        
+        let cloud = SKSpriteNode()
+        
+        let texture = self.sheet.background_set_C()
+        let type = Int.random(in: 0..<texture.count)
+        cloud.texture = texture[type]
+        cloud.size = CGSize(width: (cloud.texture?.size().width)!/3, height: (cloud.texture?.size().height)!/3)
+        let cloudAnimation = SKAction.moveTo(x: self.frame.minX - 100, duration: 10)
+        cloud.position = CGPoint(x: self.frame.maxX + 100, y: self.frame.maxY - deltaY)
+        cloud.alpha = 0.6
+        cloud.name = "clouds"
+        cloud.zPosition = 0
+        cloud.run(cloudAnimation, completion: {
+            cloud.removeFromParent()
+        })
+        self.addChild(cloud)
     }
     
     @objc func keepMove(){
@@ -158,12 +193,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
             self.player.moveBy(vector: accelerationVector)
         }
         //print(accelerationVector)
-        if accelerationVector.dx > 2.5 {
+        if accelerationVector.dx > 2.2 && self.player.currentDirection != 1{
             self.player.flyForward()
-        } else if accelerationVector.dx < -2.5 {
+        } else if accelerationVector.dx < -2.2 && self.player.currentDirection != -1{
             self.player.flyBackword()
-        } else {
+        } else if accelerationVector.dx < 2.2 && accelerationVector.dx > -2.2 && self.player.currentDirection != 0{
             self.player.flyVertical()
         }
-    }  
+    }
 }
+

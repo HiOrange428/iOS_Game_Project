@@ -10,24 +10,28 @@ import Foundation
 import SpriteKit
 
 class Player {
-    //let Player: SKSpriteNode!
-    let sheet = character_texture()
+    let sheet = Asset()
     let player: SKSpriteNode!
     let toRender: GameScene
+    let bodyBitBox = CGSize(width: 30, height: 51)
+    let textureSize = CGSize(width: 60, height: 60)
     var fire: Timer?
     var isFiring: Bool
     let healthPointMaxValue: CGFloat = 2000
     var healthPoint: CGFloat = 2000
-    let healthBarFrame = SKShapeNode()
+    let healthBarFrame = SKSpriteNode()
     let healthBarRemaining = SKShapeNode()
     var bulletDamage: CGFloat = 500
+    var currentDirection = 0
     init(forScene scene:SKScene){
         toRender = scene as! GameScene
-        player = SKSpriteNode(texture: sheet.Amelia_Amelia_fly_normal(),size: CGSize(width: 60, height: 60))
+        player = SKSpriteNode(texture: sheet.Amelia_Without_Gun_1(),size: self.textureSize)
+        let textureCycle = SKAction.repeatForever(SKAction.animate(with: self.sheet.Amelia_Without_Gun(), timePerFrame: 0.3))
+        self.player.run(textureCycle, withKey: "Without_Gun")
         player.alpha = 1
         player.name = "player"
         player.position = CGPoint(x: scene.frame.midX, y: scene.frame.midY)
-        player.physicsBody = SKPhysicsBody(rectangleOf:CGSize(width: 30, height: 51.6))
+        player.physicsBody = SKPhysicsBody(rectangleOf:self.bodyBitBox)
         player.physicsBody?.categoryBitMask = self.toRender.categoryBitMask_player
         player.physicsBody?.collisionBitMask = self.toRender.categoryBitMask_player
         player.physicsBody?.contactTestBitMask = self.toRender.categoryBitMask_player | self.toRender.categoryBitMask_enemiesBullets | self.toRender.categoryBitMask_bossAttack
@@ -61,32 +65,33 @@ class Player {
         bullet.zPosition = 5
         bullet.run(fireAnimation)
         self.player.addChild(bullet)
-
     }
+    
     func healthBarRendering(){
         let width = (self.toRender.frame.maxX-self.toRender.frame.minX)/3
-        let height = CGFloat(30.0)
-        self.healthBarFrame.path = CGPath(rect: CGRect(x: 0, y: CGFloat(-height), width: width, height: height), transform: nil)
-        self.healthBarFrame.strokeColor = UIColor.lightGray
-        self.healthBarFrame.fillColor = UIColor.clear
+        let height = CGFloat(50.0)
+        self.healthBarFrame.texture = self.sheet.UI_healthBarFrame()
+        //self.healthBarFrame.anchorPoint = CGPoint(x: 1, y:0)
+        self.healthBarFrame.size = CGSize(width: width+16, height: height)
         self.healthBarFrame.name = "healthBarFrame"
-        self.healthBarFrame.position = CGPoint(x: self.toRender.frame.minX + 10, y: self.toRender.frame.maxY - 10)
-        
-        self.healthBarRemaining.path = CGPath(rect: CGRect(x: 0, y: CGFloat(-height), width: width, height: height), transform: nil)
+        self.healthBarFrame.position = CGPoint(x: self.toRender.frame.minX + 22 + (width/2), y: self.toRender.frame.maxY - 15)
+        //self.healthBarFrame.position = CGPoint(x: self.toRender.frame.midX, y: self.toRender.frame.midY)
+        self.healthBarRemaining.path = CGPath(rect: CGRect(x: 0, y: CGFloat(-10), width: width, height: 10), transform: nil)
         self.healthBarRemaining.strokeColor = UIColor.clear
         self.healthBarRemaining.fillColor = UIColor.systemGreen
         self.healthBarRemaining.name = "healthBarRemaining"
-        self.healthBarRemaining.position = CGPoint(x: self.toRender.frame.minX + 10, y: self.toRender.frame.maxY - 10)
+        self.healthBarRemaining.position = CGPoint(x: self.toRender.frame.minX + 21, y: self.toRender.frame.maxY - 10)
         self.healthBarRemaining.zPosition = 20
         self.healthBarFrame.zPosition = 20
         self.toRender.addChild(healthBarFrame)
         self.toRender.addChild(healthBarRemaining)
     }
     func healthBarChanging(changedValue: CGFloat) -> CGFloat{
-        let newHP = self.healthPoint + changedValue
+        var newHP = self.healthPoint + changedValue
+        if newHP > self.healthPointMaxValue { newHP = self.healthPointMaxValue }
         if (newHP > 0) {
             let width = (self.toRender.frame.maxX-self.toRender.frame.minX)/3
-            let height = CGFloat(30.0)
+            let height = CGFloat(10.0)
             self.healthBarRemaining.path = CGPath(rect: CGRect(x: 0, y: CGFloat(-height), width: width * (newHP / healthPointMaxValue), height: height), transform: nil)
             self.healthPoint = newHP
         } else {
@@ -100,40 +105,64 @@ class Player {
     func startFiring(){
         self.fire = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(self.playerFire), userInfo: nil, repeats: true)
         self.isFiring = true
-        player.texture = sheet.Amelia_Amelia_fly_normal_fire()
+        stopAnimationCycle()
+        self.player.texture = self.sheet.Amelia_Normal_1()
+        let textureCycle = SKAction.repeatForever(SKAction.animate(with: self.sheet.Amelia_Normal(), timePerFrame: 0.1))
+        self.player.run(textureCycle, withKey: "Normal")
     }
     func stopFiring(){
         fire?.invalidate()
         self.isFiring = false
-        player.texture = sheet.Amelia_Amelia_fly_normal()
+        stopAnimationCycle()
+        self.player.texture = self.sheet.Amelia_Without_Gun_1()
+        let textureCycle = SKAction.repeatForever(SKAction.animate(with: self.sheet.Amelia_Without_Gun(), timePerFrame: 0.1))
+        self.player.run(textureCycle, withKey: "Without_Gun")
     }
     
     func flyForward(){
+        self.currentDirection = 1
         if isFiring{
-            self.player.texture = self.sheet.Amelia_Amelia_fly_forward_fire()
+            stopAnimationCycle()
+            let textureCycle = SKAction.repeatForever(SKAction.animate(with: self.sheet.Amelia_Forward(), timePerFrame: 0.1))
+            self.player.run(textureCycle, withKey: "Forward")
         } else {
-            self.player.texture = self.sheet.Amelia_Amelia_fly_forward()
+            stopFiring()
         }
-        
     }
     
     func flyBackword(){
+        self.currentDirection = -1
         if isFiring{
-            self.player.texture = self.sheet.Amelia_Amelia_fly_backward_fire()
+            stopAnimationCycle()
+            let textureCycle = SKAction.repeatForever(SKAction.animate(with: self.sheet.Amelia_Backward(), timePerFrame: 0.1))
+            self.player.run(textureCycle, withKey: "Backward")
         } else {
-            self.player.texture = self.sheet.Amelia_Amelia_fly_backward()
+            stopFiring()
         }
     }
     
+    
     func flyVertical(){
+        self.currentDirection = 0
         if isFiring{
-            self.player.texture = self.sheet.Amelia_Amelia_fly_normal_fire()
+            stopAnimationCycle()
+            let textureCycle = SKAction.repeatForever(SKAction.animate(with: self.sheet.Amelia_Normal(), timePerFrame: 0.1))
+            self.player.run(textureCycle, withKey: "Normal")
         } else {
-            self.player.texture = self.sheet.Amelia_Amelia_fly_normal()
+            stopFiring()
         }
     }
+    
+    func stopAnimationCycle(){
+        self.player.removeAction(forKey: "Normal")
+        self.player.removeAction(forKey: "Without_Gun")
+        self.player.removeAction(forKey: "Forward")
+        self.player.removeAction(forKey: "Backward")
+    }
+    
     
     @objc func playerFire(){
         self.newBullet()
     }
+    
 }

@@ -20,9 +20,8 @@
 		3861203B26426B31003BDCF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3861203926426B31003BDCF8 /* LaunchScreen.storyboard */; };
 		389228902664DA0800C75F96 /* background_city_sunset.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3892288F2664DA0800C75F96 /* background_city_sunset.jpg */; };
 		389228A8266596A500C75F96 /* Boss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389228A7266596A500C75F96 /* Boss.swift */; };
-		38DC4D3D26663A82000B6646 /* character_texture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DC4D3926663A82000B6646 /* character_texture.swift */; };
-		38DC4D3E26663A82000B6646 /* character_texture.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38DC4D3B26663A82000B6646 /* character_texture.plist */; };
-		38DC4D3F26663A82000B6646 /* character_texture.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DC4D3C26663A82000B6646 /* character_texture.1.png */; };
+		58618B032671EDFC00D27FE1 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58618B012671EDFC00D27FE1 /* Asset.swift */; };
+		58618B042671EDFC00D27FE1 /* Asset.atlasc in Resources */ = {isa = PBXBuildFile; fileRef = 58618B022671EDFC00D27FE1 /* Asset.atlasc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,9 +40,8 @@
 		3861203C26426B31003BDCF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3892288F2664DA0800C75F96 /* background_city_sunset.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background_city_sunset.jpg; sourceTree = "<group>"; };
 		389228A7266596A500C75F96 /* Boss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boss.swift; sourceTree = "<group>"; };
-		38DC4D3926663A82000B6646 /* character_texture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = character_texture.swift; sourceTree = "<group>"; };
-		38DC4D3B26663A82000B6646 /* character_texture.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = character_texture.plist; sourceTree = "<group>"; };
-		38DC4D3C26663A82000B6646 /* character_texture.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_texture.1.png; sourceTree = "<group>"; };
+		58618B012671EDFC00D27FE1 /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Asset.swift; path = ../../Asset.swift; sourceTree = "<group>"; };
+		58618B022671EDFC00D27FE1 /* Asset.atlasc */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Asset.atlasc; path = ../../Asset.atlasc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +74,8 @@
 		3861202926426B30003BDCF8 /* pj */ = {
 			isa = PBXGroup;
 			children = (
-				38DC4D3A26663A82000B6646 /* character_texture.atlasc */,
-				38DC4D3926663A82000B6646 /* character_texture.swift */,
+				58618B022671EDFC00D27FE1 /* Asset.atlasc */,
+				58618B012671EDFC00D27FE1 /* Asset.swift */,
 				3892288F2664DA0800C75F96 /* background_city_sunset.jpg */,
 				3861202A26426B30003BDCF8 /* AppDelegate.swift */,
 				3861202C26426B30003BDCF8 /* GameScene.sks */,
@@ -94,15 +92,6 @@
 				389228A7266596A500C75F96 /* Boss.swift */,
 			);
 			path = pj;
-			sourceTree = "<group>";
-		};
-		38DC4D3A26663A82000B6646 /* character_texture.atlasc */ = {
-			isa = PBXGroup;
-			children = (
-				38DC4D3B26663A82000B6646 /* character_texture.plist */,
-				38DC4D3C26663A82000B6646 /* character_texture.1.png */,
-			);
-			path = character_texture.atlasc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,13 +152,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38DC4D3E26663A82000B6646 /* character_texture.plist in Resources */,
 				3861203626426B30003BDCF8 /* Main.storyboard in Resources */,
 				3861202D26426B30003BDCF8 /* GameScene.sks in Resources */,
+				58618B042671EDFC00D27FE1 /* Asset.atlasc in Resources */,
 				389228902664DA0800C75F96 /* background_city_sunset.jpg in Resources */,
 				3861203826426B31003BDCF8 /* Assets.xcassets in Resources */,
 				3861203B26426B31003BDCF8 /* LaunchScreen.storyboard in Resources */,
-				38DC4D3F26663A82000B6646 /* character_texture.1.png in Resources */,
 				3861202F26426B30003BDCF8 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,8 +175,8 @@
 				389228A8266596A500C75F96 /* Boss.swift in Sources */,
 				3861202B26426B30003BDCF8 /* AppDelegate.swift in Sources */,
 				380CB39A26451E98004088B7 /* Player.swift in Sources */,
+				58618B032671EDFC00D27FE1 /* Asset.swift in Sources */,
 				380CB398264511C9004088B7 /* JDGamePaddle.swift in Sources */,
-				38DC4D3D26663A82000B6646 /* character_texture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
