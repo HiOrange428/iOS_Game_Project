@@ -16,12 +16,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     var enemies = [Enemy]()
     var boss: Boss?
     var gameUI: GameUI!
-    var enemyCountInEachWave = [0, 1, 3, 3, 4, 4]
+    var enemyCountInEachWave = [0, 1, 3]
     var inBossFight: Bool = false
     var wave = 1
     var accelerationVector = CGVector(dx: 0, dy: 0)
+    var settlementData = SettlementData()
+    
     private var keepDetectMove: Timer?
     private var GenerateCloud: Timer?
+    private var timePassed: Timer?
     public let categoryBitMask_player: UInt32 = 0x1 << 1
     public let categoryBitMask_enemies: UInt32 = 0x1 << 2
     public let categoryBitMask_playerBullets: UInt32 = 0x1 << 3
@@ -35,6 +38,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
+        self.timePassed = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timePlusOne), userInfo: nil, repeats: true)
         createScene()
     }
     func createScene() {
@@ -68,9 +72,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
         
     }
     
-    @objc func test(){
-        print("hi")
-    }
     func createEnemy() {
         let topSpawnPiontY = self.frame.maxY
         let buttomSpawnPointY = self.frame.minY
@@ -101,8 +102,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
         case categoryBitMask_player | categoryBitMask_enemiesBullets:
             contact.bodyB.node?.removeFromParent()
             self.player.healthChanging(changedValue: -200)
+            self.settlementData.damageAbsorbed -= 200
 // player hits enemy
         case categoryBitMask_playerBullets | categoryBitMask_enemies:
+            self.settlementData.damageDealed += self.player.bulletDamage
             if contact.bodyA.categoryBitMask == categoryBitMask_enemies{
                 if let targetName = contact.bodyA.node?.name {
                     if let index = self.enemies.firstIndex(where: {$0.nodeName == targetName}){
@@ -142,6 +145,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
         case categoryBitMask_player | categoryBitMask_bossAttack:
             if let damage = self.boss?.attackDamage {
                 self.player.healthChanging(changedValue: -damage)
+                self.settlementData.damageAbsorbed -= damage
                 print("boss skill hit")
             }
         default:
@@ -161,7 +165,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     }
     
     func levelComplete(){
+        self.timePassed?.invalidate()
         
+        let scene = SettlementScene(size: self.size)
+        scene.catchData(data: self.settlementData)
+        let fade = SKTransition.fade(withDuration: 0.7)
+        self.view?.presentScene(scene, transition: fade)
     }
     
     @objc func newCloud(){
@@ -221,6 +230,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
         } else if accelerationVector.dx < 2.2 && accelerationVector.dx > -2.2 && self.player.currentDirection != 0{
             self.player.flyVertical()
         }
+    }
+    @objc func timePlusOne(){
+        self.settlementData.time += 1
     }
     
     @objc func c_shadowSprint(){

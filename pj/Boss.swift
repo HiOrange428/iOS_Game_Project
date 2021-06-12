@@ -116,6 +116,7 @@ class Boss {
         //print(toRender.children)
         self.skillTimer?.invalidate()
         self.boss.removeFromParent()
+        self.toRender.levelComplete()
     }
     
     

@@ -264,7 +264,6 @@ class Player {
     }
     
     func buff(){
-        
         self.bulletDamage *= 2
         Timer.scheduledTimer(timeInterval: 9, target: self, selector: #selector(self.buffOver), userInfo: nil, repeats: false)
         let effect = SKSpriteNode(texture: sheet.Amelia_Skill_Buff_FX001(), size: CGSize(width: 200, height: 200))
