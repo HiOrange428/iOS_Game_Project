@@ -39,12 +39,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     }
     func createScene() {
         self.physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0)
-        let background = SKSpriteNode(imageNamed: "background_city_sunset.jpg")
+        let background = SKSpriteNode(texture: self.sheet.background_set_B1013_1())
         background.size = CGSize(width: self.frame.width, height: self.frame.height)
         background.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
-        background.alpha = 0.7
-        background.zPosition = -1
-        self.addChild(background)
+        background.alpha = 1
+        background.zPosition = -2
+        let textureCycle = SKAction.repeatForever(SKAction.animate(with: self.sheet.background_set_B1013_p1(), timePerFrame: 1))
+        background.run(textureCycle, withKey: "starry")
+        let moon = SKSpriteNode(texture: self.sheet.background_set_M1010())
+        moon.size = CGSize(width: ((moon.texture?.size().width)!)/6, height: ((moon.texture?.size().height)!)/6)
+        moon.position = CGPoint(x: self.frame.midX - self.frame.width/3, y: self.frame.midY + self.frame.height/4)
+        moon.alpha = 1
+        moon.zPosition = -1
+        
         self.paddle = JDGamePaddle(forScene: self, size:CGSize(width: 200, height: 200), position: CGPoint(x: self.frame.minX + 80.0, y: self.frame.minY + 80.0))
         self.paddle.delegate = self
         self.player = Player(forScene: self)
@@ -52,6 +59,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
         self.newCloud()
         self.GenerateCloud = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(newCloud), userInfo: nil, repeats: true)
         self.gameUI = GameUI(forScene: self, forPlayer: self.player)
+        
+        self.addChild(background)
+        self.addChild(moon)
+        
         createEnemy()
         player.startFiring()
         

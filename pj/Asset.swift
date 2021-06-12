@@ -662,13 +662,20 @@ class Asset {
         ]
     }
 
-    func background_set_B1013_() -> [SKTexture] {
+    func background_set_B1013_p1() -> [SKTexture] {
         return [
             background_set_B1013_1(),
             background_set_B1013_2(),
-            background_set_B1013_3(),
+            background_set_B1013_1(),
+            background_set_B1013_3()
+        ]
+    }
+    
+    func background_set_B1013_p2() -> [SKTexture] {
+        return [
             background_set_B1013_4(),
             background_set_B1013_5(),
+            background_set_B1013_4(),
             background_set_B1013_6()
         ]
     }

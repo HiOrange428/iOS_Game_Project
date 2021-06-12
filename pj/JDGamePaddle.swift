@@ -78,9 +78,11 @@ class JDPaddle:SKSpriteNode
         let paddleSize:CGSize = CGSize(width: size.height * 0.7 , height: size.height * 0.7)
         MovingPing = SKShapeNode(circleOfRadius: paddleSize.width * 0.18)
         MovingPing?.fillColor = UIColor.black
+        MovingPing?.zPosition = 20
         PaddleBorder = SKShapeNode(circleOfRadius: paddleSize.width * 0.5 )
         PaddleBorder?.fillColor = UIColor.clear
         PaddleBorder?.strokeColor = UIColor.black
+        PaddleBorder?.zPosition = 20
         super.init(texture: nil, color: UIColor.clear, size: paddleSize)
         self.zPosition = 1
         self.isUserInteractionEnabled = true
