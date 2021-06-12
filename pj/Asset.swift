@@ -171,6 +171,12 @@ class Asset {
     let GURA_SKILL_TRIDENT                = "Gura/Skill/trident"
     let GURA_HANDOUT                      = "Gura/handout"
     let GURA_TRIDENT                      = "Gura/trident"
+    let UI_BTN_EXIT_DEFAULT               = "UI/btn/exit/default"
+    let UI_BTN_EXIT_DISABLED              = "UI/btn/exit/disabled"
+    let UI_BTN_EXIT_SELECTED              = "UI/btn/exit/selected"
+    let UI_BTN_PLAY_DEFAULT               = "UI/btn/play/default"
+    let UI_BTN_PLAY_DISABLED              = "UI/btn/play/disabled"
+    let UI_BTN_PLAY_SELECTED              = "UI/btn/play/selected"
     let UI_HEALTHBARFRAME                 = "UI/healthBarFrame"
     let UI_HEALTHBARREMAINING             = "UI/healthBarRemaining"
     let UI_SKILLICON_ATKBUFF              = "UI/skillIcon/atkBuff"
@@ -366,6 +372,12 @@ class Asset {
     func Gura_Skill_trident() -> SKTexture                { return textureAtlas.textureNamed(GURA_SKILL_TRIDENT) }
     func Gura_handout() -> SKTexture                      { return textureAtlas.textureNamed(GURA_HANDOUT) }
     func Gura_trident() -> SKTexture                      { return textureAtlas.textureNamed(GURA_TRIDENT) }
+    func UI_btn_exit_default() -> SKTexture               { return textureAtlas.textureNamed(UI_BTN_EXIT_DEFAULT) }
+    func UI_btn_exit_disabled() -> SKTexture              { return textureAtlas.textureNamed(UI_BTN_EXIT_DISABLED) }
+    func UI_btn_exit_selected() -> SKTexture              { return textureAtlas.textureNamed(UI_BTN_EXIT_SELECTED) }
+    func UI_btn_play_default() -> SKTexture               { return textureAtlas.textureNamed(UI_BTN_PLAY_DEFAULT) }
+    func UI_btn_play_disabled() -> SKTexture              { return textureAtlas.textureNamed(UI_BTN_PLAY_DISABLED) }
+    func UI_btn_play_selected() -> SKTexture              { return textureAtlas.textureNamed(UI_BTN_PLAY_SELECTED) }
     func UI_healthBarFrame() -> SKTexture                 { return textureAtlas.textureNamed(UI_HEALTHBARFRAME) }
     func UI_healthBarRemaining() -> SKTexture             { return textureAtlas.textureNamed(UI_HEALTHBARREMAINING) }
     func UI_skillIcon_atkBuff() -> SKTexture              { return textureAtlas.textureNamed(UI_SKILLICON_ATKBUFF) }

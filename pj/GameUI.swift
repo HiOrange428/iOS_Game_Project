@@ -104,7 +104,7 @@ class GameUI {
             Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(self.enableSkill_Healing), userInfo: nil, repeats: false)
         case .Buff:
             self.skill_Buff_icon.isEnabled = false
-            Timer.scheduledTimer(timeInterval: 40, target: self, selector: #selector(self.enableSkill_Buff), userInfo: nil, repeats: false)
+            Timer.scheduledTimer(timeInterval: 45, target: self, selector: #selector(self.enableSkill_Buff), userInfo: nil, repeats: false)
         default:
             break
         }

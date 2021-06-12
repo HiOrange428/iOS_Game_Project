@@ -14,11 +14,11 @@ class Boss {
     var boss: SKSpriteNode!
     let toRender: GameScene
     let nodeName: String
-    let healthPointMaxValue: CGFloat = 12000
-    var healthPoint: CGFloat = 12000
+    let healthPointMaxValue: CGFloat = 20000
+    var healthPoint: CGFloat = 20000
     let healthBarFrame = SKShapeNode()
     let healthBarRemaining = SKShapeNode()
-    var attackDamage: CGFloat = 400
+    var attackDamage: CGFloat = 350
     var invincible: Bool = true
     var skillTimer: Timer?
     var skillRunning: Bool = false

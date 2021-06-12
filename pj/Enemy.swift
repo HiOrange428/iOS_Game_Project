@@ -23,8 +23,8 @@ class Enemy {
     let bodyHitBox = SKPhysicsBody(circleOfRadius: 20)
     let textureSize = CGSize(width: 60, height: 60)
     
-    let healthPointMaxValue: CGFloat = 2000
-    var healthPoint: CGFloat = 2000
+    let healthPointMaxValue: CGFloat = 4000
+    var healthPoint: CGFloat = 4000
     let healthBarFrame = SKShapeNode()
     let healthBarRemaining = SKShapeNode()
     let bulletDamage = 200
@@ -77,7 +77,7 @@ class Enemy {
         } else {
             moveInToScreen = SKAction.move(by: CGVector(dx: -100,dy: 0), duration: 2)
         }
-        enemy!.run(moveInToScreen, completion: {self.fire = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.enemyFire), userInfo: nil, repeats: true)})
+        enemy!.run(moveInToScreen, completion: {self.fire = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.enemyFire), userInfo: nil, repeats: true)})
         self.toRender.addChild(self.enemy!)
     }
     
@@ -95,7 +95,7 @@ class Enemy {
         bullet.path = CGPath(rect: CGRect(x: -4, y: -2, width: 8, height: 4), transform: nil)
         bullet.strokeColor = SKColor.white
         bullet.fillColor = SKColor.systemRed
-        let fire = SKAction.sequence([SKAction.move(by: CGVector(dx:dx, dy:dy), duration: 10), SKAction.removeFromParent()])
+        let fire = SKAction.sequence([SKAction.move(by: CGVector(dx:dx, dy:dy), duration: 15), SKAction.removeFromParent()])
         bullet.position = enemy!.position
         
         bullet.zRotation = atan(dy/dx)

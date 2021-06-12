@@ -16,7 +16,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     var enemies = [Enemy]()
     var boss: Boss?
     var gameUI: GameUI!
-    var enemyCountInEachWave = [0, 1]
+    var enemyCountInEachWave = [0, 1, 3, 3, 4, 4]
     var inBossFight: Bool = false
     var wave = 1
     var accelerationVector = CGVector(dx: 0, dy: 0)

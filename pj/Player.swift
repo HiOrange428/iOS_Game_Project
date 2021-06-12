@@ -51,7 +51,11 @@ class Player {
         let bullet = SKShapeNode()
         bullet.path = CGPath(rect: CGRect(x: -4, y: -2, width: 8, height: 4), transform: nil)
         bullet.strokeColor = SKColor.white
-        bullet.fillColor = SKColor.cyan
+        if self.bulletDamage <= 700{
+            bullet.fillColor = SKColor.cyan
+        } else {
+            bullet.fillColor = SKColor.purple
+        }
         let fireAnimation = SKAction.sequence([SKAction.move(by: CGVector(dx:1500, dy:0), duration: 2), SKAction.removeFromParent()])
         bullet.position = CGPoint(x: 4, y: 2)
         bullet.name = "bullets"
@@ -143,7 +147,9 @@ class Player {
     func shadowSprint(){
         let dx = self.toRender.accelerationVector.dx
         let dy = self.toRender.accelerationVector.dy
+        print("dx:\(dx) dy:\(dy)")
         let length = sqrt(dx*dx+dy*dy)
+        let distance: CGFloat = 125
         let effect = SKSpriteNode(texture: sheet.Amelia_Skill_Sprint_1(), size: CGSize(width: 200, height: 200))
         effect.alpha = 1
         let textureCycle = SKAction.animate(with: sheet.Amelia_Skill_Sprint(), timePerFrame: 0.03)
@@ -152,18 +158,102 @@ class Player {
         effect.name = "sprint_effect"
         effect.run(textureCycle, completion: {effect.removeFromParent()})
         player.addChild(effect)
-        if length < 0.2{
-            let vector = CGVector(dx: 100, dy: 0)
-            let moveAction = SKAction.move(by: vector, duration: 0.02)
-            print("SS_triggered")
-            self.player.run(moveAction)
+        if length < 0.1{
+            let destination = CGPoint(x: player.position.x + 100, y: player.position.y)
+            if destination.x > self.toRender.frame.maxX {
+                let vector = CGVector(dx: self.toRender.frame.maxX - player.position.x, dy: 0)
+                let moveAction = SKAction.move(by: vector, duration: 0.02)
+                print("SS>X_triggered")
+                self.player.run(moveAction)
+            } else {
+                let vector = CGVector(dx: 100, dy: 0)
+                let moveAction = SKAction.move(by: vector, duration: 0.02)
+                print("SS_triggered")
+                self.player.run(moveAction)
+            }
         } else {
-            let vector = CGVector(dx: dx/length*100, dy: dy/length*100)
-            let moveAction = SKAction.move(by: vector, duration: 0.02)
-            print("SS_triggered")
-            self.player.run(moveAction)
+            let destination = CGPoint(x: player.position.x + dx/length*distance, y: player.position.y + dy/length*distance)
+            switch borderDetect(d: destination) {
+            case 0:
+                let vector = CGVector(dx: dx/length*distance, dy: dy/length*distance)
+                let moveAction = SKAction.move(by: vector, duration: 0.02)
+                print("SS_triggered")
+                self.player.run(moveAction)
+            case 1:
+                let vector = CGVector(dx: self.toRender.frame.maxX - player.position.x, dy: dy / dx * (self.toRender.frame.maxX - player.position.x))
+                let moveAction = SKAction.move(by: vector, duration: 0.02)
+                print("SS>X_triggered")
+                self.player.run(moveAction)
+            case 2:
+                let vector = CGVector(dx: self.toRender.frame.minX - player.position.x, dy: dy / dx * ( self.toRender.frame.minX - player.position.x))
+                let moveAction = SKAction.move(by: vector, duration: 0.02)
+                print("SS<X_triggered")
+                self.player.run(moveAction)
+            case 3:
+                let vector = CGVector(dx: dx / dy * (self.toRender.frame.maxY - player.position.y), dy:self.toRender.frame.maxY - player.position.y)
+                let moveAction = SKAction.move(by: vector, duration: 0.02)
+                print("SS>Y_triggered")
+                self.player.run(moveAction)
+            case 4:
+                let vector = CGVector(dx: dx / dy * (self.toRender.frame.minY - player.position.y), dy: self.toRender.frame.minY -  player.position.y)
+                let moveAction = SKAction.move(by: vector, duration: 0.02)
+                print("SS<Y_triggered")
+                self.player.run(moveAction)
+            default:
+                break
+            }
         }
         self.toRender.gameUI.disableSkill(type: .Sprint)
+    }
+    
+    func borderDetect(d:CGPoint) -> Int8 {
+        if d.x > self.toRender.frame.maxX {
+            if d.y > self.toRender.frame.maxY  {
+                let deltaX = abs(self.toRender.frame.maxX - d.x)
+                let deltaY = abs(self.toRender.frame.maxY - d.y)
+                if deltaX > deltaY {
+                    return 1
+                } else {
+                    return 3
+                }
+            } else if d.y < self.toRender.frame.minY {
+                let deltaX = abs(self.toRender.frame.maxX - d.x)
+                let deltaY = abs(self.toRender.frame.minY - d.y)
+                if deltaX > deltaY {
+                    return 1
+                } else {
+                    return 4
+                }
+            } else {
+                return 1
+            }
+        } else if d.x < self.toRender.frame.minX {
+            if d.y > self.toRender.frame.maxY  {
+                let deltaX = abs(self.toRender.frame.minX - d.x)
+                let deltaY = abs(self.toRender.frame.maxY - d.y)
+                if deltaX > deltaY {
+                    return 2
+                } else {
+                    return 3
+                }
+            } else if d.y < self.toRender.frame.minY {
+                let deltaX = abs(self.toRender.frame.minX - d.x)
+                let deltaY = abs(self.toRender.frame.minY - d.y)
+                if deltaX > deltaY {
+                    return 2
+                } else {
+                    return 4
+                }
+            } else {
+                return 2
+            }
+        } else if d.y > self.toRender.frame.maxY {
+            return 3
+        } else if d.y < self.toRender.frame.minY {
+            return 4
+        } else {
+            return 0
+        }
     }
     
     func healing(){
@@ -174,10 +264,10 @@ class Player {
     
     func buff(){
         self.bulletDamage *= 2
-        Timer.scheduledTimer(timeInterval: 8, target: self, selector: #selector(self.buffOver), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 9, target: self, selector: #selector(self.buffOver), userInfo: nil, repeats: false)
         let effect = SKSpriteNode(texture: sheet.Amelia_Skill_Buff_FX001(), size: CGSize(width: 200, height: 200))
         effect.alpha = 0.6
-        effect.size = CGSize(width: ((effect.texture?.size().width)!)*1.6, height: ((effect.texture?.size().height)!)*1.6)
+        effect.size = CGSize(width: ((effect.texture?.size().width)!)*1.8, height: ((effect.texture?.size().height)!)*1.9)
         let textureCycle = SKAction.repeatForever(SKAction.animate(with: sheet.Amelia_Skill_Buff_FX(), timePerFrame: 0.1))
         effect.position = CGPoint(x: 0, y: 0)
         effect.zPosition = 21
