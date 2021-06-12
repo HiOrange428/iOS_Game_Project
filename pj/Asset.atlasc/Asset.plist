@@ -7,7 +7,7 @@
             <key>generator</key>
             <string>TexturePacker 5.5.0 - https://www.codeandweb.com/texturepacker</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:fb952fefe7af14830fa6f4173bb7abea:5b45f737a44db3cc0b3ae077ff75d4f7:eb65c8c4902d904b5a46cbc8ccc45c78$</string>
+            <string>$TexturePacker:SmartUpdate:ad3825b88ba48af8071193471166efde:53bf8329540b99a29184ec7cd4159be0:eb65c8c4902d904b5a46cbc8ccc45c78$</string>
         </dict>
         <key>format</key>
         <string>APPL</string>
@@ -17,7 +17,7 @@
                 <key>path</key>
                 <string>Asset.1.png</string>
                 <key>size</key>
-                <string>{2048,2048}</string>
+                <string>{2048,2047}</string>
                 <key>subimages</key>
                 <array>
                     <dict>
@@ -650,13 +650,13 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>UI/btn/exit/default.png</string>
+                        <string>bullet.png</string>
                         <key>spriteOffset</key>
-                        <string>{0,0}</string>
+                        <string>{5,14}</string>
                         <key>spriteSourceSize</key>
-                        <string>{49,20}</string>
+                        <string>{48,48}</string>
                         <key>textureRect</key>
-                        <string>{{1971,805},{20,49}}</string>
+                        <string>{{1971,805},{20,38}}</string>
                         <key>textureRotated</key>
                         <true/>
                     </dict>
@@ -1034,38 +1034,6 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>UI/btn/exit/disabled.png</string>
-                        <key>spriteOffset</key>
-                        <string>{0,0}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{49,20}</string>
-                        <key>textureRect</key>
-                        <string>{{1323,1748},{49,20}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>UI/btn/exit/selected.png</string>
-                        <key>spriteOffset</key>
-                        <string>{0,0}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{49,20}</string>
-                        <key>textureRect</key>
-                        <string>{{1374,1748},{49,20}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
                         <string>Gura/2.png</string>
                         <key>spriteOffset</key>
                         <string>{143,31}</string>
@@ -1130,125 +1098,13 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Gura/Skill/Portal/6.png</string>
+                        <string>UI/healthBarFrame.png</string>
                         <key>spriteOffset</key>
-                        <string>{55,2}</string>
+                        <string>{0,11}</string>
                         <key>spriteSourceSize</key>
-                        <string>{256,243}</string>
+                        <string>{288,48}</string>
                         <key>textureRect</key>
-                        <string>{{1403,1770},{138,234}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Amelia/Skill/Buff/FX014.png</string>
-                        <key>spriteOffset</key>
-                        <string>{4,8}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{64,49}</string>
-                        <key>textureRect</key>
-                        <string>{{1436,2006},{48,41}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Amelia/Skill/Buff/FX015.png</string>
-                        <key>spriteOffset</key>
-                        <string>{4,8}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{64,49}</string>
-                        <key>textureRect</key>
-                        <string>{{1486,2006},{48,41}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>UI/btn/play/default.png</string>
-                        <key>spriteOffset</key>
-                        <string>{0,0}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{49,20}</string>
-                        <key>textureRect</key>
-                        <string>{{1425,1748},{49,20}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>UI/btn/play/disabled.png</string>
-                        <key>spriteOffset</key>
-                        <string>{0,0}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{49,20}</string>
-                        <key>textureRect</key>
-                        <string>{{1476,1748},{49,20}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>UI/btn/play/selected.png</string>
-                        <key>spriteOffset</key>
-                        <string>{0,0}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{49,20}</string>
-                        <key>textureRect</key>
-                        <string>{{1527,1748},{49,20}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Amelia/Skill/Buff/FX006.png</string>
-                        <key>spriteOffset</key>
-                        <string>{4,0}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{64,49}</string>
-                        <key>textureRect</key>
-                        <string>{{1536,2006},{58,40}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Amelia/Skill/Lighting/07.png</string>
-                        <key>spriteOffset</key>
-                        <string>{23,7}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{256,512}</string>
-                        <key>textureRect</key>
-                        <string>{{1543,1770},{322,233}}</string>
+                        <string>{{1436,1748},{23,286}}</string>
                         <key>textureRotated</key>
                         <true/>
                     </dict>
@@ -1258,13 +1114,13 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0052.png</string>
+                        <string>Gura/Skill/round_vortex/frame0079.png</string>
                         <key>spriteOffset</key>
-                        <string>{8,7}</string>
+                        <string>{4,20}</string>
                         <key>spriteSourceSize</key>
                         <string>{100,100}</string>
                         <key>textureRect</key>
-                        <string>{{1867,1509},{86,87}}</string>
+                        <string>{{1403,1748},{26,68}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -1274,13 +1130,29 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Amelia/Forward/3.png</string>
+                        <string>UI/btn/exit/default.png</string>
                         <key>spriteOffset</key>
-                        <string>{55,15}</string>
+                        <string>{0,0}</string>
                         <key>spriteSourceSize</key>
-                        <string>{256,256}</string>
+                        <string>{392,160}</string>
                         <key>textureRect</key>
-                        <string>{{1578,1598},{226,170}}</string>
+                        <string>{{1535,1509},{392,160}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>UI/btn/ctrl/pause_default.png</string>
+                        <key>spriteOffset</key>
+                        <string>{0,0}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{220,116}</string>
+                        <key>textureRect</key>
+                        <string>{{1929,1565},{116,220}}</string>
                         <key>textureRotated</key>
                         <true/>
                     </dict>
@@ -1290,13 +1162,29 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Amelia/Normal/1.png</string>
+                        <string>UI/btn/exit/disabled.png</string>
                         <key>spriteOffset</key>
-                        <string>{55,15}</string>
+                        <string>{0,0}</string>
                         <key>spriteSourceSize</key>
-                        <string>{256,256}</string>
+                        <string>{392,160}</string>
                         <key>textureRect</key>
-                        <string>{{1806,1598},{226,170}}</string>
+                        <string>{{1535,1671},{392,160}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0025.png</string>
+                        <key>spriteOffset</key>
+                        <string>{12,14}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1461,1748},{72,76}}</string>
                         <key>textureRotated</key>
                         <true/>
                     </dict>
@@ -1306,13 +1194,45 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0013.png</string>
+                        <string>Gura/Skill/round_vortex/frame0009.png</string>
                         <key>spriteOffset</key>
-                        <string>{6,4}</string>
+                        <string>{12,13}</string>
                         <key>spriteSourceSize</key>
                         <string>{100,100}</string>
                         <key>textureRect</key>
-                        <string>{{1535,1509},{89,87}}</string>
+                        <string>{{1461,1826},{72,74}}</string>
+                        <key>textureRotated</key>
+                        <true/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>UI/btn/ctrl/play_default.png</string>
+                        <key>spriteOffset</key>
+                        <string>{0,0}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{220,116}</string>
+                        <key>textureRect</key>
+                        <string>{{1929,1787},{116,220}}</string>
+                        <key>textureRotated</key>
+                        <true/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>UI/btn/exit/selected.png</string>
+                        <key>spriteOffset</key>
+                        <string>{0,0}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{392,160}</string>
+                        <key>textureRect</key>
+                        <string>{{1535,1833},{392,160}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -1322,15 +1242,15 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0018.png</string>
+                        <string>Gura/Skill/round_vortex/frame0024.png</string>
                         <key>spriteOffset</key>
-                        <string>{6,4}</string>
+                        <string>{12,14}</string>
                         <key>spriteSourceSize</key>
                         <string>{100,100}</string>
                         <key>textureRect</key>
-                        <string>{{1626,1509},{89,87}}</string>
+                        <string>{{1461,1902},{71,75}}</string>
                         <key>textureRotated</key>
-                        <false/>
+                        <true/>
                     </dict>
                     <dict>
                         <key>aliases</key>
@@ -1338,13 +1258,13 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0073.png</string>
+                        <string>Gura/Skill/round_vortex/frame0019.png</string>
                         <key>spriteOffset</key>
-                        <string>{5,9}</string>
+                        <string>{15,16}</string>
                         <key>spriteSourceSize</key>
                         <string>{100,100}</string>
                         <key>textureRect</key>
-                        <string>{{1717,1509},{88,87}}</string>
+                        <string>{{1461,1979},{71,67}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -1360,7 +1280,7 @@
                         <key>spriteSourceSize</key>
                         <string>{64,49}</string>
                         <key>textureRect</key>
-                        <string>{{1807,1509},{57,49}}</string>
+                        <string>{{1534,1995},{57,49}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -1370,15 +1290,15 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Amelia/Forward/1.png</string>
+                        <string>Amelia/Skill/Buff/FX014.png</string>
                         <key>spriteOffset</key>
-                        <string>{47,15}</string>
+                        <string>{4,8}</string>
                         <key>spriteSourceSize</key>
-                        <string>{256,256}</string>
+                        <string>{64,49}</string>
                         <key>textureRect</key>
-                        <string>{{1867,1770},{178,226}}</string>
+                        <string>{{1593,1995},{41,48}}</string>
                         <key>textureRotated</key>
-                        <false/>
+                        <true/>
                     </dict>
                     <dict>
                         <key>aliases</key>
@@ -1386,29 +1306,13 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>bullet.png</string>
+                        <string>Amelia/Skill/Buff/FX015.png</string>
                         <key>spriteOffset</key>
-                        <string>{5,14}</string>
+                        <string>{4,8}</string>
                         <key>spriteSourceSize</key>
-                        <string>{48,48}</string>
+                        <string>{64,49}</string>
                         <key>textureRect</key>
-                        <string>{{1535,1598},{38,20}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0079.png</string>
-                        <key>spriteOffset</key>
-                        <string>{4,20}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1955,1565},{68,26}}</string>
+                        <string>{{1636,1995},{41,48}}</string>
                         <key>textureRotated</key>
                         <true/>
                     </dict>
@@ -1424,7 +1328,7 @@
                         <key>spriteSourceSize</key>
                         <string>{100,100}</string>
                         <key>textureRect</key>
-                        <string>{{1867,1998},{44,44}}</string>
+                        <string>{{1679,1995},{44,44}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -1440,7 +1344,23 @@
                         <key>spriteSourceSize</key>
                         <string>{100,100}</string>
                         <key>textureRect</key>
-                        <string>{{1913,1998},{43,44}}</string>
+                        <string>{{1725,1995},{43,44}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Amelia/Skill/Buff/FX006.png</string>
+                        <key>spriteOffset</key>
+                        <string>{4,0}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{64,49}</string>
+                        <key>textureRect</key>
+                        <string>{{1770,1995},{58,40}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -1450,7 +1370,7 @@
                 <key>path</key>
                 <string>Asset.2.png</string>
                 <key>size</key>
-                <string>{1916,905}</string>
+                <string>{1304,1851}</string>
                 <key>subimages</key>
                 <array>
                     <dict>
@@ -1475,7 +1395,7 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Amelia/Skill/Lighting/08.png</string>
+                        <string>Amelia/Skill/Lighting/07.png</string>
                         <key>spriteOffset</key>
                         <string>{23,7}</string>
                         <key>spriteSourceSize</key>
@@ -1491,13 +1411,45 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Enemy/Ghost/2.png</string>
+                        <string>Amelia/Skill/Lighting/08.png</string>
                         <key>spriteOffset</key>
-                        <string>{15,15}</string>
+                        <string>{23,7}</string>
                         <key>spriteSourceSize</key>
-                        <string>{256,256}</string>
+                        <string>{256,512}</string>
                         <key>textureRect</key>
-                        <string>{{1,437},{226,226}}</string>
+                        <string>{{464,1},{233,322}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>UI/btn/option/default.png</string>
+                        <key>spriteOffset</key>
+                        <string>{0,0}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{392,160}</string>
+                        <key>textureRect</key>
+                        <string>{{1,437},{160,392}}</string>
+                        <key>textureRotated</key>
+                        <true/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>UI/btn/option/disabled.png</string>
+                        <key>spriteOffset</key>
+                        <string>{0,0}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{392,160}</string>
+                        <key>textureRect</key>
+                        <string>{{699,1},{392,160}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -1513,9 +1465,57 @@
                         <key>spriteSourceSize</key>
                         <string>{256,256}</string>
                         <key>textureRect</key>
-                        <string>{{229,325},{226,210}}</string>
+                        <string>{{1093,1},{210,226}}</string>
+                        <key>textureRotated</key>
+                        <true/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>UI/btn/option/selected.png</string>
+                        <key>spriteOffset</key>
+                        <string>{0,0}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{392,160}</string>
+                        <key>textureRect</key>
+                        <string>{{699,163},{392,160}}</string>
                         <key>textureRotated</key>
                         <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>UI/btn/play/default.png</string>
+                        <key>spriteOffset</key>
+                        <string>{0,0}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{392,160}</string>
+                        <key>textureRect</key>
+                        <string>{{1,831},{160,392}}</string>
+                        <key>textureRotated</key>
+                        <true/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>UI/btn/play/disabled.png</string>
+                        <key>spriteOffset</key>
+                        <string>{0,0}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{392,160}</string>
+                        <key>textureRect</key>
+                        <string>{{1,1225},{160,392}}</string>
+                        <key>textureRotated</key>
+                        <true/>
                     </dict>
                     <dict>
                         <key>aliases</key>
@@ -1529,7 +1529,7 @@
                         <key>spriteSourceSize</key>
                         <string>{256,256}</string>
                         <key>textureRect</key>
-                        <string>{{464,1},{210,210}}</string>
+                        <string>{{1093,229},{210,210}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -1539,47 +1539,15 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Amelia/Forward/2.png</string>
+                        <string>UI/btn/play/selected.png</string>
                         <key>spriteOffset</key>
-                        <string>{47,15}</string>
+                        <string>{0,0}</string>
                         <key>spriteSourceSize</key>
-                        <string>{256,256}</string>
+                        <string>{392,160}</string>
                         <key>textureRect</key>
-                        <string>{{1,665},{178,226}}</string>
+                        <string>{{229,325},{392,160}}</string>
                         <key>textureRotated</key>
                         <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Amelia/Normal/2.png</string>
-                        <key>spriteOffset</key>
-                        <string>{55,15}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{256,256}</string>
-                        <key>textureRect</key>
-                        <string>{{676,1},{226,170}}</string>
-                        <key>textureRotated</key>
-                        <true/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Amelia/Normal/3.png</string>
-                        <key>spriteOffset</key>
-                        <string>{63,15}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{256,256}</string>
-                        <key>textureRect</key>
-                        <string>{{904,1},{226,162}}</string>
-                        <key>textureRotated</key>
-                        <true/>
                     </dict>
                     <dict>
                         <key>aliases</key>
@@ -1593,71 +1561,7 @@
                         <key>spriteSourceSize</key>
                         <string>{256,243}</string>
                         <key>textureRect</key>
-                        <string>{{1132,1},{233,154}}</string>
-                        <key>textureRotated</key>
-                        <true/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/Portal/2.png</string>
-                        <key>spriteOffset</key>
-                        <string>{55,2}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{256,243}</string>
-                        <key>textureRect</key>
-                        <string>{{1367,1},{226,154}}</string>
-                        <key>textureRotated</key>
-                        <true/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/Portal/1.png</string>
-                        <key>spriteOffset</key>
-                        <string>{55,18}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{256,243}</string>
-                        <key>textureRect</key>
-                        <string>{{1595,1},{218,154}}</string>
-                        <key>textureRotated</key>
-                        <true/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Amelia/Backward/1.png</string>
-                        <key>spriteOffset</key>
-                        <string>{87,15}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{256,256}</string>
-                        <key>textureRect</key>
-                        <string>{{229,537},{226,138}}</string>
-                        <key>textureRotated</key>
-                        <true/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/Portal/4.png</string>
-                        <key>spriteOffset</key>
-                        <string>{55,18}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{256,243}</string>
-                        <key>textureRect</key>
-                        <string>{{181,677},{225,146}}</string>
+                        <string>{{623,325},{233,154}}</string>
                         <key>textureRotated</key>
                         <true/>
                     </dict>
@@ -1673,7 +1577,215 @@
                         <key>spriteSourceSize</key>
                         <string>{256,512}</string>
                         <key>textureRect</key>
-                        <string>{{464,213},{233,114}}</string>
+                        <string>{{858,325},{233,114}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Enemy/Ghost/2.png</string>
+                        <key>spriteOffset</key>
+                        <string>{15,15}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{256,256}</string>
+                        <key>textureRect</key>
+                        <string>{{1,1619},{226,226}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Amelia/Forward/1.png</string>
+                        <key>spriteOffset</key>
+                        <string>{47,15}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{256,256}</string>
+                        <key>textureRect</key>
+                        <string>{{163,487},{178,226}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Amelia/Forward/2.png</string>
+                        <key>spriteOffset</key>
+                        <string>{47,15}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{256,256}</string>
+                        <key>textureRect</key>
+                        <string>{{163,715},{178,226}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Amelia/Forward/3.png</string>
+                        <key>spriteOffset</key>
+                        <string>{55,15}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{256,256}</string>
+                        <key>textureRect</key>
+                        <string>{{343,487},{170,226}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Amelia/Normal/1.png</string>
+                        <key>spriteOffset</key>
+                        <string>{55,15}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{256,256}</string>
+                        <key>textureRect</key>
+                        <string>{{163,943},{170,226}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Amelia/Normal/2.png</string>
+                        <key>spriteOffset</key>
+                        <string>{55,15}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{256,256}</string>
+                        <key>textureRect</key>
+                        <string>{{343,715},{170,226}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Amelia/Normal/3.png</string>
+                        <key>spriteOffset</key>
+                        <string>{63,15}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{256,256}</string>
+                        <key>textureRect</key>
+                        <string>{{163,1171},{162,226}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/Portal/1.png</string>
+                        <key>spriteOffset</key>
+                        <string>{55,18}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{256,243}</string>
+                        <key>textureRect</key>
+                        <string>{{163,1399},{154,218}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/Portal/2.png</string>
+                        <key>spriteOffset</key>
+                        <string>{55,2}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{256,243}</string>
+                        <key>textureRect</key>
+                        <string>{{335,943},{154,226}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/Portal/4.png</string>
+                        <key>spriteOffset</key>
+                        <string>{55,18}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{256,243}</string>
+                        <key>textureRect</key>
+                        <string>{{327,1171},{146,225}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/Portal/6.png</string>
+                        <key>spriteOffset</key>
+                        <string>{55,2}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{256,243}</string>
+                        <key>textureRect</key>
+                        <string>{{515,487},{138,234}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Enemy/Bloop/1.png</string>
+                        <key>spriteOffset</key>
+                        <string>{39,31}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{256,256}</string>
+                        <key>textureRect</key>
+                        <string>{{655,481},{178,186}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Amelia/Backward/1.png</string>
+                        <key>spriteOffset</key>
+                        <string>{87,15}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{256,256}</string>
+                        <key>textureRect</key>
+                        <string>{{515,723},{138,226}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -1689,25 +1801,9 @@
                         <key>spriteSourceSize</key>
                         <string>{256,256}</string>
                         <key>textureRect</key>
-                        <string>{{457,329},{138,226}}</string>
+                        <string>{{655,669},{138,226}}</string>
                         <key>textureRotated</key>
                         <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Amelia/Skill/Lighting/10.png</string>
-                        <key>spriteOffset</key>
-                        <string>{23,15}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{256,512}</string>
-                        <key>textureRect</key>
-                        <string>{{597,329},{106,233}}</string>
-                        <key>textureRotated</key>
-                        <true/>
                     </dict>
                     <dict>
                         <key>aliases</key>
@@ -1721,9 +1817,9 @@
                         <key>spriteSourceSize</key>
                         <string>{256,256}</string>
                         <key>textureRect</key>
-                        <string>{{699,173},{226,138}}</string>
+                        <string>{{491,951},{138,226}}</string>
                         <key>textureRotated</key>
-                        <true/>
+                        <false/>
                     </dict>
                     <dict>
                         <key>aliases</key>
@@ -1737,7 +1833,7 @@
                         <key>spriteSourceSize</key>
                         <string>{256,243}</string>
                         <key>textureRect</key>
-                        <string>{{705,313},{138,226}}</string>
+                        <string>{{475,1179},{138,226}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -1753,9 +1849,41 @@
                         <key>spriteSourceSize</key>
                         <string>{256,243}</string>
                         <key>textureRect</key>
-                        <string>{{927,165},{226,138}}</string>
+                        <string>{{229,1619},{138,226}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Amelia/Skill/Lighting/11.png</string>
+                        <key>spriteOffset</key>
+                        <string>{31,15}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{256,512}</string>
+                        <key>textureRect</key>
+                        <string>{{319,1399},{106,218}}</string>
                         <key>textureRotated</key>
                         <true/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Enemy/Bloop/2.png</string>
+                        <key>spriteOffset</key>
+                        <string>{47,39}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{256,256}</string>
+                        <key>textureRect</key>
+                        <string>{{427,1407},{170,178}}</string>
+                        <key>textureRotated</key>
+                        <false/>
                     </dict>
                     <dict>
                         <key>aliases</key>
@@ -1769,9 +1897,9 @@
                         <key>spriteSourceSize</key>
                         <string>{256,243}</string>
                         <key>textureRect</key>
-                        <string>{{1155,157},{226,138}}</string>
+                        <string>{{369,1619},{138,226}}</string>
                         <key>textureRotated</key>
-                        <true/>
+                        <false/>
                     </dict>
                     <dict>
                         <key>aliases</key>
@@ -1779,29 +1907,13 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Amelia/Without_Gun/1.png</string>
+                        <string>Amelia/Skill/Lighting/10.png</string>
                         <key>spriteOffset</key>
-                        <string>{55,15}</string>
+                        <string>{23,15}</string>
                         <key>spriteSourceSize</key>
-                        <string>{256,256}</string>
+                        <string>{256,512}</string>
                         <key>textureRect</key>
-                        <string>{{1383,157},{226,130}}</string>
-                        <key>textureRotated</key>
-                        <true/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Amelia/Without_Gun/2.png</string>
-                        <key>spriteOffset</key>
-                        <string>{55,15}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{256,256}</string>
-                        <key>textureRect</key>
-                        <string>{{1611,157},{226,130}}</string>
+                        <string>{{509,1587},{106,233}}</string>
                         <key>textureRotated</key>
                         <true/>
                     </dict>
@@ -1817,7 +1929,23 @@
                         <key>spriteSourceSize</key>
                         <string>{256,512}</string>
                         <key>textureRect</key>
-                        <string>{{845,313},{98,233}}</string>
+                        <string>{{858,441},{233,98}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Amelia/Without_Gun/1.png</string>
+                        <key>spriteOffset</key>
+                        <string>{55,15}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{256,256}</string>
+                        <key>textureRect</key>
+                        <string>{{835,541},{226,130}}</string>
                         <key>textureRotated</key>
                         <true/>
                     </dict>
@@ -1827,47 +1955,15 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Enemy/Bloop/1.png</string>
+                        <string>Amelia/Without_Gun/2.png</string>
                         <key>spriteOffset</key>
-                        <string>{39,31}</string>
+                        <string>{55,15}</string>
                         <key>spriteSourceSize</key>
                         <string>{256,256}</string>
                         <key>textureRect</key>
-                        <string>{{945,305},{178,186}}</string>
+                        <string>{{795,673},{226,130}}</string>
                         <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>UI/healthBarFrame.png</string>
-                        <key>spriteOffset</key>
-                        <string>{0,11}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{288,48}</string>
-                        <key>textureRect</key>
-                        <string>{{1383,289},{286,23}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Amelia/Skill/Healing/LT105.png</string>
-                        <key>spriteOffset</key>
-                        <string>{167,231}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{512,512}</string>
-                        <key>textureRect</key>
-                        <string>{{181,825},{218,74}}</string>
-                        <key>textureRotated</key>
-                        <false/>
+                        <true/>
                     </dict>
                     <dict>
                         <key>aliases</key>
@@ -1881,7 +1977,7 @@
                         <key>spriteSourceSize</key>
                         <string>{256,256}</string>
                         <key>textureRect</key>
-                        <string>{{1155,297},{226,122}}</string>
+                        <string>{{795,805},{226,122}}</string>
                         <key>textureRotated</key>
                         <true/>
                     </dict>
@@ -1891,13 +1987,13 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Amelia/Skill/Lighting/11.png</string>
+                        <string>Enemy/Bat/3.png</string>
                         <key>spriteOffset</key>
-                        <string>{31,15}</string>
+                        <string>{47,47}</string>
                         <key>spriteSourceSize</key>
-                        <string>{256,512}</string>
+                        <string>{256,256}</string>
                         <key>textureRect</key>
-                        <string>{{1383,314},{218,106}}</string>
+                        <string>{{1093,441},{194,146}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -1913,7 +2009,7 @@
                         <key>spriteSourceSize</key>
                         <string>{256,512}</string>
                         <key>textureRect</key>
-                        <string>{{1125,421},{225,82}}</string>
+                        <string>{{1063,589},{225,82}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -1923,13 +2019,13 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Enemy/Bat/3.png</string>
+                        <string>UI/btn/ctrl/pause_selected.png</string>
                         <key>spriteOffset</key>
-                        <string>{47,47}</string>
+                        <string>{0,0}</string>
                         <key>spriteSourceSize</key>
-                        <string>{256,256}</string>
+                        <string>{220,116}</string>
                         <key>textureRect</key>
-                        <string>{{1352,422},{194,146}}</string>
+                        <string>{{1023,673},{220,109}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -1939,29 +2035,13 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Enemy/Bloop/2.png</string>
+                        <string>UI/btn/ctrl/play_selected.png</string>
                         <key>spriteOffset</key>
-                        <string>{47,39}</string>
+                        <string>{0,0}</string>
                         <key>spriteSourceSize</key>
-                        <string>{256,256}</string>
+                        <string>{220,116}</string>
                         <key>textureRect</key>
-                        <string>{{945,493},{178,170}}</string>
-                        <key>textureRotated</key>
-                        <true/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Amelia/Skill/Sprint/2.png</string>
-                        <key>spriteOffset</key>
-                        <string>{182,157}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{547,512}</string>
-                        <key>textureRect</key>
-                        <string>{{1125,505},{153,143}}</string>
+                        <string>{{1023,784},{220,109}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -1977,9 +2057,25 @@
                         <key>spriteSourceSize</key>
                         <string>{512,512}</string>
                         <key>textureRect</key>
-                        <string>{{1280,505},{58,170}}</string>
+                        <string>{{1245,673},{58,170}}</string>
                         <key>textureRotated</key>
                         <true/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Amelia/Skill/Healing/LT105.png</string>
+                        <key>spriteOffset</key>
+                        <string>{167,231}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{512,512}</string>
+                        <key>textureRect</key>
+                        <string>{{1023,895},{218,74}}</string>
+                        <key>textureRotated</key>
+                        <false/>
                     </dict>
                     <dict>
                         <key>aliases</key>
@@ -1993,7 +2089,23 @@
                         <key>spriteSourceSize</key>
                         <string>{512,512}</string>
                         <key>textureRect</key>
-                        <string>{{1340,570},{186,74}}</string>
+                        <string>{{631,951},{74,186}}</string>
+                        <key>textureRotated</key>
+                        <true/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Amelia/Skill/Sprint/2.png</string>
+                        <key>spriteOffset</key>
+                        <string>{182,157}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{547,512}</string>
+                        <key>textureRect</key>
+                        <string>{{707,929},{153,143}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -2009,7 +2121,7 @@
                         <key>spriteSourceSize</key>
                         <string>{96,96}</string>
                         <key>textureRect</key>
-                        <string>{{457,557},{96,96}}</string>
+                        <string>{{862,929},{96,96}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -2025,55 +2137,7 @@
                         <key>spriteSourceSize</key>
                         <string>{96,96}</string>
                         <key>textureRect</key>
-                        <string>{{1815,1},{96,96}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0030.png</string>
-                        <key>spriteOffset</key>
-                        <string>{10,12}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1839,99},{76,79}}</string>
-                        <key>textureRotated</key>
-                        <true/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0026.png</string>
-                        <key>spriteOffset</key>
-                        <string>{12,14}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1839,180},{76,73}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0025.png</string>
-                        <key>spriteOffset</key>
-                        <string>{12,14}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1839,255},{76,72}}</string>
+                        <string>{{707,1074},{96,96}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -2089,759 +2153,7 @@
                         <key>spriteSourceSize</key>
                         <string>{96,96}</string>
                         <key>textureRect</key>
-                        <string>{{1603,314},{96,96}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <true/>
-                        <key>name</key>
-                        <string>UI/skillIcon/sprint.png</string>
-                        <key>spriteOffset</key>
-                        <string>{0,0}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{96,96}</string>
-                        <key>textureRect</key>
-                        <string>{{1701,289},{96,96}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0033.png</string>
-                        <key>spriteOffset</key>
-                        <string>{9,11}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{401,825},{80,79}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <true/>
-                        <key>name</key>
-                        <string>UI/skillIcon/sprint_CD.png</string>
-                        <key>spriteOffset</key>
-                        <string>{0,0}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{96,96}</string>
-                        <key>textureRect</key>
-                        <string>{{1548,422},{96,96}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <true/>
-                        <key>name</key>
-                        <string>UI/skillIcon/strike.png</string>
-                        <key>spriteOffset</key>
-                        <string>{0,0}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{96,96}</string>
-                        <key>textureRect</key>
-                        <string>{{1548,520},{96,96}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <true/>
-                        <key>name</key>
-                        <string>UI/skillIcon/strike_CD.png</string>
-                        <key>spriteOffset</key>
-                        <string>{0,0}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{96,96}</string>
-                        <key>textureRect</key>
-                        <string>{{555,564},{96,96}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <true/>
-                        <key>name</key>
-                        <string>UI/skillIcon/zawarudo.png</string>
-                        <key>spriteOffset</key>
-                        <string>{0,0}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{96,96}</string>
-                        <key>textureRect</key>
-                        <string>{{653,564},{96,96}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0067.png</string>
-                        <key>spriteOffset</key>
-                        <string>{6,6}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{751,541},{90,90}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0072.png</string>
-                        <key>spriteOffset</key>
-                        <string>{5,6}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{843,548},{90,90}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0074.png</string>
-                        <key>spriteOffset</key>
-                        <string>{4,21}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{408,677},{75,91}}</string>
-                        <key>textureRotated</key>
-                        <true/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0078.png</string>
-                        <key>spriteOffset</key>
-                        <string>{4,20}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{485,655},{68,88}}</string>
-                        <key>textureRotated</key>
-                        <true/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0065.png</string>
-                        <key>spriteOffset</key>
-                        <string>{5,6}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{555,662},{90,89}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0068.png</string>
-                        <key>spriteOffset</key>
-                        <string>{6,6}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{647,662},{90,89}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0066.png</string>
-                        <key>spriteOffset</key>
-                        <string>{6,6}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1646,412},{89,90}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0070.png</string>
-                        <key>spriteOffset</key>
-                        <string>{5,7}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1646,504},{89,90}}</string>
-                        <key>textureRotated</key>
-                        <true/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0071.png</string>
-                        <key>spriteOffset</key>
-                        <string>{5,6}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1737,387},{89,90}}</string>
-                        <key>textureRotated</key>
-                        <true/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0054.png</string>
-                        <key>spriteOffset</key>
-                        <string>{7,7}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1828,329},{87,88}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0055.png</string>
-                        <key>spriteOffset</key>
-                        <string>{7,7}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1828,419},{87,88}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0058.png</string>
-                        <key>spriteOffset</key>
-                        <string>{6,7}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1737,479},{89,89}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0053.png</string>
-                        <key>spriteOffset</key>
-                        <string>{7,7}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1828,509},{87,87}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0062.png</string>
-                        <key>spriteOffset</key>
-                        <string>{6,6}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1737,570},{89,89}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0063.png</string>
-                        <key>spriteOffset</key>
-                        <string>{6,6}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1646,596},{89,89}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0051.png</string>
-                        <key>spriteOffset</key>
-                        <string>{7,8}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1828,598},{86,86}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0064.png</string>
-                        <key>spriteOffset</key>
-                        <string>{6,6}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1737,661},{89,89}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0048.png</string>
-                        <key>spriteOffset</key>
-                        <string>{7,8}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1828,686},{86,85}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0016.png</string>
-                        <key>spriteOffset</key>
-                        <string>{6,4}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1340,646},{89,88}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0059.png</string>
-                        <key>spriteOffset</key>
-                        <string>{6,7}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1431,646},{89,88}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0060.png</string>
-                        <key>spriteOffset</key>
-                        <string>{6,7}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{751,633},{89,88}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0061.png</string>
-                        <key>spriteOffset</key>
-                        <string>{6,7}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{842,640},{89,88}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0056.png</string>
-                        <key>spriteOffset</key>
-                        <string>{7,6}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{933,665},{89,88}}</string>
-                        <key>textureRotated</key>
-                        <true/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0057.png</string>
-                        <key>spriteOffset</key>
-                        <string>{7,7}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1024,665},{88,88}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0012.png</string>
-                        <key>spriteOffset</key>
-                        <string>{6,6}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{739,723},{89,85}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0014.png</string>
-                        <key>spriteOffset</key>
-                        <string>{6,6}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{830,730},{89,85}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0076.png</string>
-                        <key>spriteOffset</key>
-                        <string>{4,21}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{921,755},{89,67}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0035.png</string>
-                        <key>spriteOffset</key>
-                        <string>{9,10}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{483,824},{81,80}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0036.png</string>
-                        <key>spriteOffset</key>
-                        <string>{10,10}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{566,824},{80,80}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0037.png</string>
-                        <key>spriteOffset</key>
-                        <string>{10,10}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{648,824},{80,80}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0010.png</string>
-                        <key>spriteOffset</key>
-                        <string>{9,10}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{730,824},{77,80}}</string>
-                        <key>textureRotated</key>
-                        <true/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0077.png</string>
-                        <key>spriteOffset</key>
-                        <string>{4,21}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1012,755},{88,67}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0049.png</string>
-                        <key>spriteOffset</key>
-                        <string>{7,8}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{809,817},{86,85}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0034.png</string>
-                        <key>spriteOffset</key>
-                        <string>{9,11}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{897,824},{81,78}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0032.png</string>
-                        <key>spriteOffset</key>
-                        <string>{10,12}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{980,824},{79,77}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0031.png</string>
-                        <key>spriteOffset</key>
-                        <string>{10,12}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1061,824},{78,77}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0019.png</string>
-                        <key>spriteOffset</key>
-                        <string>{15,16}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1102,755},{71,67}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0029.png</string>
-                        <key>spriteOffset</key>
-                        <string>{11,13}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1141,824},{75,78}}</string>
-                        <key>textureRotated</key>
-                        <true/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0050.png</string>
-                        <key>spriteOffset</key>
-                        <string>{8,8}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1175,736},{85,86}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0045.png</string>
-                        <key>spriteOffset</key>
-                        <string>{8,9}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1125,650},{85,84}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0007.png</string>
-                        <key>spriteOffset</key>
-                        <string>{17,19}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1212,650},{62,62}}</string>
+                        <string>{{805,1074},{96,96}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -2857,7 +2169,199 @@
                         <key>spriteSourceSize</key>
                         <string>{100,100}</string>
                         <key>textureRect</key>
-                        <string>{{1218,824},{74,77}}</string>
+                        <string>{{631,1139},{74,77}}</string>
+                        <key>textureRotated</key>
+                        <true/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <true/>
+                        <key>name</key>
+                        <string>UI/skillIcon/sprint.png</string>
+                        <key>spriteOffset</key>
+                        <string>{0,0}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{96,96}</string>
+                        <key>textureRect</key>
+                        <string>{{615,1218},{96,96}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <true/>
+                        <key>name</key>
+                        <string>UI/skillIcon/sprint_CD.png</string>
+                        <key>spriteOffset</key>
+                        <string>{0,0}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{96,96}</string>
+                        <key>textureRect</key>
+                        <string>{{615,1316},{96,96}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <true/>
+                        <key>name</key>
+                        <string>UI/skillIcon/strike.png</string>
+                        <key>spriteOffset</key>
+                        <string>{0,0}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{96,96}</string>
+                        <key>textureRect</key>
+                        <string>{{599,1414},{96,96}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0026.png</string>
+                        <key>spriteOffset</key>
+                        <string>{12,14}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{599,1512},{76,73}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <true/>
+                        <key>name</key>
+                        <string>UI/skillIcon/strike_CD.png</string>
+                        <key>spriteOffset</key>
+                        <string>{0,0}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{96,96}</string>
+                        <key>textureRect</key>
+                        <string>{{617,1587},{96,96}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <true/>
+                        <key>name</key>
+                        <string>UI/skillIcon/zawarudo.png</string>
+                        <key>spriteOffset</key>
+                        <string>{0,0}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{96,96}</string>
+                        <key>textureRect</key>
+                        <string>{{617,1685},{96,96}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0076.png</string>
+                        <key>spriteOffset</key>
+                        <string>{4,21}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{617,1783},{89,67}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0077.png</string>
+                        <key>spriteOffset</key>
+                        <string>{4,21}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{708,1783},{88,67}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0067.png</string>
+                        <key>spriteOffset</key>
+                        <string>{6,6}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{713,1172},{90,90}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0072.png</string>
+                        <key>spriteOffset</key>
+                        <string>{5,6}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{713,1264},{90,90}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0066.png</string>
+                        <key>spriteOffset</key>
+                        <string>{6,6}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{805,1172},{89,90}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0065.png</string>
+                        <key>spriteOffset</key>
+                        <string>{5,6}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{805,1264},{89,90}}</string>
                         <key>textureRotated</key>
                         <true/>
                     </dict>
@@ -2867,13 +2371,13 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0021.png</string>
+                        <string>Gura/Skill/round_vortex/frame0074.png</string>
                         <key>spriteOffset</key>
-                        <string>{14,15}</string>
+                        <string>{4,21}</string>
                         <key>spriteSourceSize</key>
                         <string>{100,100}</string>
                         <key>textureRect</key>
-                        <string>{{485,753},{73,69}}</string>
+                        <string>{{713,1356},{91,75}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -2883,13 +2387,13 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0022.png</string>
+                        <string>Gura/Skill/round_vortex/frame0068.png</string>
                         <key>spriteOffset</key>
-                        <string>{14,15}</string>
+                        <string>{6,6}</string>
                         <key>spriteSourceSize</key>
                         <string>{100,100}</string>
                         <key>textureRect</key>
-                        <string>{{560,753},{73,69}}</string>
+                        <string>{{806,1356},{90,89}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -2899,13 +2403,13 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0020.png</string>
+                        <string>Gura/Skill/round_vortex/frame0070.png</string>
                         <key>spriteOffset</key>
-                        <string>{15,16}</string>
+                        <string>{5,7}</string>
                         <key>spriteSourceSize</key>
                         <string>{100,100}</string>
                         <key>textureRect</key>
-                        <string>{{635,753},{71,67}}</string>
+                        <string>{{697,1433},{90,89}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -2915,141 +2419,13 @@
                         <key>isFullyOpaque</key>
                         <false/>
                         <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0046.png</string>
+                        <string>Gura/Skill/round_vortex/frame0071.png</string>
                         <key>spriteOffset</key>
-                        <string>{8,8}</string>
+                        <string>{5,6}</string>
                         <key>spriteSourceSize</key>
                         <string>{100,100}</string>
                         <key>textureRect</key>
-                        <string>{{1528,618},{85,84}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0047.png</string>
-                        <key>spriteOffset</key>
-                        <string>{8,8}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1522,704},{85,84}}</string>
-                        <key>textureRotated</key>
-                        <true/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0044.png</string>
-                        <key>spriteOffset</key>
-                        <string>{8,9}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1262,736},{84,84}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0011.png</string>
-                        <key>spriteOffset</key>
-                        <string>{8,7}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1294,822},{84,82}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0041.png</string>
-                        <key>spriteOffset</key>
-                        <string>{9,9}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1348,736},{83,83}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0042.png</string>
-                        <key>spriteOffset</key>
-                        <string>{9,9}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1380,821},{83,83}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0043.png</string>
-                        <key>spriteOffset</key>
-                        <string>{9,9}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1433,736},{83,83}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0040.png</string>
-                        <key>spriteOffset</key>
-                        <string>{9,9}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1465,821},{82,82}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0038.png</string>
-                        <key>spriteOffset</key>
-                        <string>{10,10}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1549,790},{81,81}}</string>
+                        <string>{{789,1447},{90,89}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -3065,9 +2441,585 @@
                         <key>spriteSourceSize</key>
                         <string>{100,100}</string>
                         <key>textureRect</key>
-                        <string>{{1276,677},{56,54}}</string>
+                        <string>{{960,929},{54,56}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0058.png</string>
+                        <key>spriteOffset</key>
+                        <string>{6,7}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{881,1447},{89,89}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0062.png</string>
+                        <key>spriteOffset</key>
+                        <string>{6,6}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{903,1027},{89,89}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0063.png</string>
+                        <key>spriteOffset</key>
+                        <string>{6,6}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{903,1118},{89,89}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0064.png</string>
+                        <key>spriteOffset</key>
+                        <string>{6,6}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{896,1209},{89,89}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0056.png</string>
+                        <key>spriteOffset</key>
+                        <string>{7,6}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{898,1300},{88,89}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0016.png</string>
+                        <key>spriteOffset</key>
+                        <string>{6,4}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1016,971},{89,88}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0059.png</string>
+                        <key>spriteOffset</key>
+                        <string>{6,7}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1107,971},{89,88}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0060.png</string>
+                        <key>spriteOffset</key>
+                        <string>{6,7}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{994,1061},{89,88}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0061.png</string>
+                        <key>spriteOffset</key>
+                        <string>{6,7}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1085,1061},{89,88}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0013.png</string>
+                        <key>spriteOffset</key>
+                        <string>{6,4}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{994,1151},{89,87}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0018.png</string>
+                        <key>spriteOffset</key>
+                        <string>{6,4}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1085,1151},{89,87}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0012.png</string>
+                        <key>spriteOffset</key>
+                        <string>{6,6}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1198,971},{85,89}}</string>
                         <key>textureRotated</key>
                         <true/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0057.png</string>
+                        <key>spriteOffset</key>
+                        <string>{7,7}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1176,1062},{88,88}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0073.png</string>
+                        <key>spriteOffset</key>
+                        <string>{5,9}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1176,1152},{88,87}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0054.png</string>
+                        <key>spriteOffset</key>
+                        <string>{7,7}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{988,1240},{87,88}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0055.png</string>
+                        <key>spriteOffset</key>
+                        <string>{7,7}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1077,1240},{88,87}}</string>
+                        <key>textureRotated</key>
+                        <true/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0014.png</string>
+                        <key>spriteOffset</key>
+                        <string>{6,6}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1167,1241},{89,85}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0078.png</string>
+                        <key>spriteOffset</key>
+                        <string>{4,20}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{988,1330},{88,68}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0053.png</string>
+                        <key>spriteOffset</key>
+                        <string>{7,7}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1078,1329},{87,87}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0052.png</string>
+                        <key>spriteOffset</key>
+                        <string>{8,7}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1167,1328},{86,87}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0051.png</string>
+                        <key>spriteOffset</key>
+                        <string>{7,8}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{972,1400},{86,86}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0048.png</string>
+                        <key>spriteOffset</key>
+                        <string>{7,8}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1060,1418},{86,85}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0049.png</string>
+                        <key>spriteOffset</key>
+                        <string>{7,8}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{972,1488},{86,85}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0050.png</string>
+                        <key>spriteOffset</key>
+                        <string>{8,8}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1060,1505},{86,85}}</string>
+                        <key>textureRotated</key>
+                        <true/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0047.png</string>
+                        <key>spriteOffset</key>
+                        <string>{8,8}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1148,1418},{84,85}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0045.png</string>
+                        <key>spriteOffset</key>
+                        <string>{8,9}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1148,1505},{84,85}}</string>
+                        <key>textureRotated</key>
+                        <true/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0021.png</string>
+                        <key>spriteOffset</key>
+                        <string>{14,15}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1234,1417},{69,73}}</string>
+                        <key>textureRotated</key>
+                        <true/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0022.png</string>
+                        <key>spriteOffset</key>
+                        <string>{14,15}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1234,1492},{69,73}}</string>
+                        <key>textureRotated</key>
+                        <true/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0020.png</string>
+                        <key>spriteOffset</key>
+                        <string>{15,16}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1234,1567},{67,71}}</string>
+                        <key>textureRotated</key>
+                        <true/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0046.png</string>
+                        <key>spriteOffset</key>
+                        <string>{8,8}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{798,1538},{85,84}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0044.png</string>
+                        <key>spriteOffset</key>
+                        <string>{8,9}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{885,1538},{84,84}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0011.png</string>
+                        <key>spriteOffset</key>
+                        <string>{8,7}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{971,1575},{84,82}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0041.png</string>
+                        <key>spriteOffset</key>
+                        <string>{9,9}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1057,1592},{83,83}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0042.png</string>
+                        <key>spriteOffset</key>
+                        <string>{9,9}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1142,1592},{83,83}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0030.png</string>
+                        <key>spriteOffset</key>
+                        <string>{10,12}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1227,1640},{76,79}}</string>
+                        <key>textureRotated</key>
+                        <true/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0038.png</string>
+                        <key>spriteOffset</key>
+                        <string>{10,10}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{715,1538},{81,81}}</string>
+                        <key>textureRotated</key>
+                        <false/>
                     </dict>
                     <dict>
                         <key>aliases</key>
@@ -3081,7 +3033,199 @@
                         <key>spriteSourceSize</key>
                         <string>{100,100}</string>
                         <key>textureRect</key>
-                        <string>{{1609,704},{81,81}}</string>
+                        <string>{{715,1621},{81,81}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0010.png</string>
+                        <key>spriteOffset</key>
+                        <string>{9,10}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{715,1704},{80,77}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0043.png</string>
+                        <key>spriteOffset</key>
+                        <string>{9,9}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{798,1624},{83,83}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0040.png</string>
+                        <key>spriteOffset</key>
+                        <string>{9,9}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{883,1624},{82,82}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0035.png</string>
+                        <key>spriteOffset</key>
+                        <string>{9,10}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{967,1659},{81,80}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0034.png</string>
+                        <key>spriteOffset</key>
+                        <string>{9,11}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1050,1677},{81,78}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0036.png</string>
+                        <key>spriteOffset</key>
+                        <string>{10,10}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1133,1677},{80,80}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0007.png</string>
+                        <key>spriteOffset</key>
+                        <string>{17,19}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{797,1709},{62,62}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0032.png</string>
+                        <key>spriteOffset</key>
+                        <string>{10,12}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{798,1773},{79,77}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0037.png</string>
+                        <key>spriteOffset</key>
+                        <string>{10,10}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1215,1721},{80,80}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0033.png</string>
+                        <key>spriteOffset</key>
+                        <string>{9,11}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{883,1708},{80,79}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0031.png</string>
+                        <key>spriteOffset</key>
+                        <string>{10,12}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{965,1741},{78,77}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>Gura/Skill/round_vortex/frame0029.png</string>
+                        <key>spriteOffset</key>
+                        <string>{11,13}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{100,100}</string>
+                        <key>textureRect</key>
+                        <string>{{1045,1757},{78,75}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>
@@ -3097,39 +3241,7 @@
                         <key>spriteSourceSize</key>
                         <string>{100,100}</string>
                         <key>textureRect</key>
-                        <string>{{1632,787},{74,77}}</string>
-                        <key>textureRotated</key>
-                        <true/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0024.png</string>
-                        <key>spriteOffset</key>
-                        <string>{12,14}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1708,752},{75,71}}</string>
-                        <key>textureRotated</key>
-                        <false/>
-                    </dict>
-                    <dict>
-                        <key>aliases</key>
-                        <array/>
-                        <key>isFullyOpaque</key>
-                        <false/>
-                        <key>name</key>
-                        <string>Gura/Skill/round_vortex/frame0009.png</string>
-                        <key>spriteOffset</key>
-                        <string>{12,13}</string>
-                        <key>spriteSourceSize</key>
-                        <string>{100,100}</string>
-                        <key>textureRect</key>
-                        <string>{{1708,825},{74,72}}</string>
+                        <string>{{1125,1759},{77,74}}</string>
                         <key>textureRotated</key>
                         <false/>
                     </dict>

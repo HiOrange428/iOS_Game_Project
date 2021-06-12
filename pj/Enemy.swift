@@ -63,8 +63,6 @@ class Enemy {
         case EnemyType.shark:
             self.enemy = SKSpriteNode(texture: sheet.Enemy_Bloop_1(),size: self.textureSize)
             self.enemy!.run(SKAction.repeatForever(SKAction.animate(with: sheet.Enemy_Bloop(), timePerFrame: 0.2)))
-        default:
-            break
         }
         if self.enemyType == EnemyType.shark { self.enemy?.alpha = 0 }
         else {self.enemy?.alpha = 1}

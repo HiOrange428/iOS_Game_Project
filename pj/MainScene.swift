@@ -51,13 +51,13 @@ class MainScene: SKScene {
         
         btnPlay.position = CGPoint(x: self.frame.midX + ((self.frame.minX - self.frame.midX)/2), y: self.frame.midY + ((self.frame.maxY - self.frame.midY)/4))
         btnPlay.zPosition = 10
-        btnPlay.size = CGSize(width: ((btnPlay.texture?.size().width)!)*4, height: ((btnPlay.texture?.size().height)!)*4)
+        btnPlay.size = CGSize(width: ((btnPlay.texture?.size().width)!)/2, height: ((btnPlay.texture?.size().height)!)/2)
         btnPlay.name = "btnPlay"
         btnPlay.setButtonAction(target: self, triggerEvent: .TouchUp, action: #selector(self.play))
         
         btnExit.position = CGPoint(x: self.frame.midX + ((self.frame.minX - self.frame.midX)/2), y: self.frame.midY + ((self.frame.minY - self.frame.midY)/4))
         btnExit.zPosition = 10
-        btnExit.size = CGSize(width: ((btnExit.texture?.size().width)!)*4, height: ((btnExit.texture?.size().height)!)*4)
+        btnExit.size = CGSize(width: ((btnExit.texture?.size().width)!)/2, height: ((btnExit.texture?.size().height)!)/2)
         btnExit.name = "btnExit"
         btnExit.setButtonAction(target: self, triggerEvent: .TouchUp, action: #selector(self.exit))
         self.addChild(btnPlay)

@@ -223,5 +223,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     @objc func c_buff(){
         self.player.buff()
     }
+    
+    @objc func c_pause(){
+        let mask = SKShapeNode(rect: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
+        mask.fillColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.65)
+        mask.strokeColor = UIColor.clear
+        mask.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
+        mask.name = "pause_mask"
+        mask.zPosition = 24
+        self.addChild(mask)
+        gameUI.ctrl_unpause.isHidden = false
+        gameUI.ctrl_pause.isHidden = true
+        self.run(SKAction.wait(forDuration: 0.03), completion: {
+            self.view?.isPaused = true
+        })
+    }
+    
+    @objc func c_unpause(){
+        self.view?.isPaused = false
+        gameUI.ctrl_unpause.isHidden = true
+        gameUI.ctrl_pause.isHidden = false
+        self.run(SKAction.wait(forDuration: 0.03), completion: {
+            self.childNode(withName: "pause_mask")?.removeFromParent()
+        })
+    }
 }
 

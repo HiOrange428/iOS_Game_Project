@@ -27,6 +27,8 @@ class GameUI {
     let skill_Sprint_icon: FTButtonNode
     let skill_Healing_icon: FTButtonNode
     let skill_Buff_icon: FTButtonNode
+    let ctrl_pause: FTButtonNode
+    let ctrl_unpause: FTButtonNode
     init(forScene scene: SKScene, forPlayer player: Player){
         self.toRender = scene as! GameScene
         self.player = player
@@ -35,12 +37,15 @@ class GameUI {
         self.skill_Sprint_icon = FTButtonNode(normalTexture: self.sheet.UI_skillIcon_sprint(), selectedTexture: self.sheet.UI_skillIcon_sprint(), disabledTexture: self.sheet.UI_skillIcon_sprint_CD())
         self.skill_Healing_icon = FTButtonNode(normalTexture: self.sheet.UI_skillIcon_healing(), selectedTexture: sheet.UI_skillIcon_healing(), disabledTexture: self.sheet.UI_skillIcon_healing_CD())
         self.skill_Buff_icon = FTButtonNode(normalTexture: self.sheet.UI_skillIcon_atkBuff(), selectedTexture: sheet.UI_skillIcon_atkBuff(), disabledTexture: self.sheet.UI_skillIcon_atkBuff_CD())
-        skillSetup()
+        self.ctrl_pause = FTButtonNode(normalTexture: self.sheet.UI_btn_ctrl_pause_default(), selectedTexture: self.sheet.UI_btn_ctrl_pause_selected(), disabledTexture: nil)
+        self.ctrl_unpause = FTButtonNode(normalTexture: self.sheet.UI_btn_ctrl_play_default(), selectedTexture: self.sheet.UI_btn_ctrl_play_selected(), disabledTexture: nil)
+        
+        btnSetup()
         healthBarRendering()
         
     }
     
-    func skillSetup() {
+    func btnSetup() {
         self.skill_Sprint_icon.position = CGPoint(x: self.toRender.frame.maxX - 60,y: self.toRender.frame.minY + 60)
         self.skill_Sprint_icon.zPosition = 20
         self.skill_Sprint_icon.size = CGSize(width: 54, height: 54)
@@ -59,9 +64,24 @@ class GameUI {
         self.skill_Buff_icon.name = "Buff_icon"
         self.skill_Buff_icon.setButtonAction(target: self.toRender, triggerEvent: .TouchUpInside, action: #selector(self.toRender.c_buff))
         
+        self.ctrl_pause.position = CGPoint(x: self.toRender.frame.midX,y: self.toRender.frame.maxY - 20)
+        self.ctrl_pause.zPosition = 20
+        self.ctrl_pause.size = CGSize(width: ((self.ctrl_pause.texture?.size().width)!)*0.3, height: ((self.ctrl_pause.texture?.size().height)!)*0.3)
+        self.ctrl_pause.name = "ctrl_pause"
+        self.ctrl_pause.setButtonAction(target: self.toRender, triggerEvent: .TouchUp, action: #selector(self.toRender.c_pause))
+        
+        self.ctrl_unpause.position = CGPoint(x: self.toRender.frame.midX,y: self.toRender.frame.midY)
+        self.ctrl_unpause.zPosition = 26
+        self.ctrl_unpause.size = CGSize(width: ((self.ctrl_unpause.texture?.size().width)!), height: ((self.ctrl_unpause.texture?.size().height)!))
+        self.ctrl_unpause.name = "ctrl_unpause"
+        self.ctrl_unpause.setButtonAction(target: self.toRender, triggerEvent: .TouchUp, action: #selector(self.toRender.c_unpause))
+        self.ctrl_unpause.isHidden = true
+        
         self.toRender.addChild(skill_Sprint_icon)
         self.toRender.addChild(skill_Healing_icon)
         self.toRender.addChild(skill_Buff_icon)
+        self.toRender.addChild(ctrl_pause)
+        self.toRender.addChild(ctrl_unpause)
     }
     
     func healthBarRendering(){
