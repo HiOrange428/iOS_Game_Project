@@ -80,6 +80,7 @@ class Player {
             print("you are dead")
             stopFiring()
             //else dead
+            self.toRender.gameOver()
         }
         return newHP
     }

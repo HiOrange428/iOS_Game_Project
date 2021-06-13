@@ -14,6 +14,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     var paddle:JDGamePaddle!
     var player: Player!
     var enemies = [Enemy]()
+    let enemiesDamage: CGFloat = 200
     var boss: Boss?
     var gameUI: GameUI!
     var enemyCountInEachWave = [0, 1, 3]
@@ -98,11 +99,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         switch collision {
+        
 // player been hit
         case categoryBitMask_player | categoryBitMask_enemiesBullets:
             contact.bodyB.node?.removeFromParent()
-            self.player.healthChanging(changedValue: -200)
-            self.settlementData.damageAbsorbed -= 200
+            self.settlementData.damageAbsorbed += self.enemiesDamage
+            self.player.healthChanging(changedValue: -self.enemiesDamage)
+            
 // player hits enemy
         case categoryBitMask_playerBullets | categoryBitMask_enemies:
             self.settlementData.damageDealed += self.player.bulletDamage
@@ -133,6 +136,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
                 }
                 contact.bodyA.node?.removeFromParent()
             }
+            
         case categoryBitMask_playerBullets | categoryBitMask_boss:
             if self.boss!.healthBarChanging(changedValue: -self.player.bulletDamage) <= 0{
                 self.boss = nil
@@ -142,10 +146,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
             } else {
                 contact.bodyA.node?.removeFromParent()
             }
+            
         case categoryBitMask_player | categoryBitMask_bossAttack:
             if let damage = self.boss?.attackDamage {
+                self.settlementData.damageAbsorbed += damage
                 self.player.healthChanging(changedValue: -damage)
-                self.settlementData.damageAbsorbed -= damage
                 print("boss skill hit")
             }
         default:
@@ -166,9 +171,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     
     func levelComplete(){
         self.timePassed?.invalidate()
-        
         let scene = SettlementScene(size: self.size)
-        scene.catchData(data: self.settlementData)
+        scene.catchData(data: self.settlementData, complete: true)
+        let fade = SKTransition.fade(withDuration: 0.7)
+        self.view?.presentScene(scene, transition: fade)
+    }
+    
+    func gameOver(){
+        self.timePassed?.invalidate()
+        let scene = SettlementScene(size: self.size)
+        scene.catchData(data: self.settlementData, complete: false)
         let fade = SKTransition.fade(withDuration: 0.7)
         self.view?.presentScene(scene, transition: fade)
     }
