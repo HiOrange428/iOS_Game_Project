@@ -49,15 +49,21 @@ class Boss {
     }
     
     func enterSceneActions(){
+        self.toRender.clearBullet()
         let moveInToScreen = SKAction.move(by: CGVector(dx: -100,dy: 0), duration: 2)
         self.boss.run(moveInToScreen, completion: {
-            self.invincible = false
-            self.healthBarRendering()
-            self.skillTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.tryCastingSkill), userInfo: nil, repeats: true)
-            //self.poseidonBlast(castingCount: 1)
+            self.toRender.storyMode()
         })
         self.toRender.addChild(self.boss)
     }
+    
+    func bossFight(){
+        self.invincible = false
+        self.healthBarRendering()
+        self.skillTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.tryCastingSkill), userInfo: nil, repeats: true)
+        //self.poseidonBlast(castingCount: 1)
+    }
+    
     func healthBarRendering(){
         let width = CGFloat(50.0)
         let height = CGFloat(5.0)
@@ -113,7 +119,6 @@ class Boss {
             }
         })
         self.toRender.removeChildren(in: toRemove)
-        //print(toRender.children)
         self.skillTimer?.invalidate()
         self.boss.removeFromParent()
         self.toRender.levelComplete()
@@ -160,17 +165,16 @@ class Boss {
             blast.physicsBody?.contactTestBitMask = self.toRender.categoryBitMask_bossAttack | self.toRender.categoryBitMask_player
             let moveToTargetY = SKAction.moveTo(y: playerPosition.y, duration: 0.2)
             let casting = SKAction.resize(byWidth: 100, height: 0, duration: 0.05)
-            // let repeatCasting = SKAction.repeat(casting, count: Int(ceil(width/40)))
+            let sound = SKAction.playSoundFileNamed("Gura_beam.wav", waitForCompletion: false)
             let wait = SKAction.wait(forDuration: 0.6)
             
             let fadeIn = SKAction.fadeIn(withDuration: 0.15)
-            //let fadeIn2 = SKAction.fadeIn(withDuration: 0.05)
+            
             let fade03 = SKAction.fadeAlpha(to: 0.3, duration: 0.1)
             let fadeOut = SKAction.fadeOut(withDuration: 0.15)
-            let seq = SKAction.sequence([wait, fadeOut, SKAction.removeFromParent()])
+            let seq = SKAction.sequence([wait, sound, fadeOut, SKAction.removeFromParent()])
             let seq2 = SKAction.sequence([SKAction.wait(forDuration:0.3) ,fadeIn, SKAction.wait(forDuration:0.8), fadeOut, SKAction.removeFromParent()])
             blastCore.run(seq2)
-            //self.toRender.addChild(attackWarning)
             self.boss.addChild(attackWarning)
             self.boss.run(moveToTargetY, completion:{
                 attackWarning.run(fade03)
@@ -179,6 +183,7 @@ class Boss {
                     attackWarning.removeFromParent()
                     self.boss.addChild(blast)
                     for i in 1 ... Int(ceil(width/100)){
+                        
                         blast.run(casting)
                         blast.size = CGSize(width: blast.size.width + CGFloat(i * 100), height: blast.size.height)
                         blast.physicsBody = SKPhysicsBody(rectangleOf: blast.size, center: CGPoint(x: 1, y: 0))
@@ -191,7 +196,6 @@ class Boss {
                     }
                     
                     blast.run(seq, completion: {
-//                        print("Blast wave:\(castingCount)")
                         if(castingCount<4){
                              self.poseidonBlast(castingCount: castingCount+1)
                         } else {
@@ -241,6 +245,8 @@ class Boss {
             attackArea.physicsBody?.collisionBitMask = self.toRender.categoryBitMask_bossAttack
             attackArea.physicsBody?.contactTestBitMask = self.toRender.categoryBitMask_bossAttack | self.toRender.categoryBitMask_player
             
+            let sound = SKAction.playSoundFileNamed("Gura_trident_explode.wav", waitForCompletion: false)
+            
             let wait = SKAction.wait(forDuration: 1.2)
             let fadeIn = SKAction.fadeIn(withDuration: 0.3)
             let fade03 = SKAction.fadeAlpha(to: 0.3, duration: 0.1)
@@ -256,7 +262,7 @@ class Boss {
                     attackWarning.run(SKAction.removeFromParent())
                     trident.run(SKAction.removeFromParent())
                     self.toRender.addChild(attackArea)
-                    attackArea.run(textureCycle, completion: {
+                    attackArea.run(SKAction.sequence([sound, SKAction.changeVolume(to: 1.2, duration: 0), textureCycle]) , completion: {
                         attackArea.removeFromParent()
                         self.skillRunning = false
                         let textureCycle = SKAction.repeatForever(SKAction.animate(with: self.sheet.Gura(), timePerFrame: 0.3))
@@ -290,9 +296,10 @@ class Boss {
                 self.toRender.enemies.append(shark)
                 sharkRemain += 1
             }
+            let sound = SKAction.playSoundFileNamed("Gura_Summonning.wav", waitForCompletion: false)
             let wait = SKAction.wait(forDuration: 3)
             let moveToCenter = SKAction.moveTo(y: self.toRender.frame.midY, duration: 0.2)
-            let seq = SKAction.sequence([moveToCenter, wait])
+            let seq = SKAction.sequence([moveToCenter, sound, wait])
             self.boss.run(seq, completion:{
                 self.skillRunning = false
                 portals.forEach{ element in
@@ -306,7 +313,6 @@ class Boss {
     @objc func tryCastingSkill(){
         if skillRunning { return }
         else{
-            print("SR:\(sharkRemain)")
             switch self.skillParameter {
             case 1:
                 poseidonBlast(castingCount: 1)

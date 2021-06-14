@@ -84,20 +84,22 @@ class SettlementScene: SKScene {
     
     func createBtn(){
         let sheet = Asset()
-        let returnToMainMenuBtn = FTButtonNode(normalTexture: sheet.UI_btn_ctrl_pause_default(), selectedTexture: sheet.UI_btn_ctrl_pause_selected(), disabledTexture: nil)
-        returnToMainMenuBtn.position = CGPoint(x: self.frame.midX + self.frame.width*0.25, y: self.frame.midY - self.frame.height*0.35)
+        let returnToMainMenuBtn = FTButtonNode(normalTexture: sheet.UI_btn_default(), selectedTexture: sheet.UI_btn_selected(), disabledTexture: nil)
+        returnToMainMenuBtn.position = CGPoint(x: self.frame.midX + self.frame.width*0.2, y: self.frame.midY - self.frame.height*0.35)
         returnToMainMenuBtn.zPosition = 20
         returnToMainMenuBtn.alpha = 0
-        returnToMainMenuBtn.size = CGSize(width: ((returnToMainMenuBtn.texture?.size().width)!)*0.3, height: ((returnToMainMenuBtn.texture?.size().height)!)*0.3)
+        returnToMainMenuBtn.size = CGSize(width: ((returnToMainMenuBtn.texture?.size().width)!)*0.5, height: ((returnToMainMenuBtn.texture?.size().height)!)*0.3)
         returnToMainMenuBtn.name = "returnToMainMenuBtn"
+        returnToMainMenuBtn.setButtonLabel(title: "Main Menu", font: "Silver", fontSize: 30)
         returnToMainMenuBtn.setButtonAction(target: self, triggerEvent: .TouchUp, action: #selector(self.returnToMainMenu))
         
-        let tryAgainBtn = FTButtonNode(normalTexture: sheet.UI_btn_ctrl_play_default(), selectedTexture: sheet.UI_btn_ctrl_play_selected(), disabledTexture: nil)
+        let tryAgainBtn = FTButtonNode(normalTexture: sheet.UI_btn_default(), selectedTexture: sheet.UI_btn_selected(), disabledTexture: nil)
         tryAgainBtn.position = CGPoint(x: self.frame.midX + self.frame.width*0.375, y: self.frame.midY - self.frame.height*0.35)
         tryAgainBtn.zPosition = 20
         tryAgainBtn.alpha = 0
-        tryAgainBtn.size = CGSize(width: ((tryAgainBtn.texture?.size().width)!)*0.3, height: ((tryAgainBtn.texture?.size().height)!)*0.3)
+        tryAgainBtn.size = CGSize(width: ((tryAgainBtn.texture?.size().width)!)*0.5, height: ((tryAgainBtn.texture?.size().height)!)*0.3)
         tryAgainBtn.name = "tryAgainBtn"
+        tryAgainBtn.setButtonLabel(title: "Try Again!", font: "Silver", fontSize: 30)
         tryAgainBtn.setButtonAction(target: self, triggerEvent: .TouchUp, action: #selector(self.tryAgain))
         
         returnToMainMenuBtn.run(SKAction.fadeIn(withDuration: 2))
@@ -113,13 +115,17 @@ class SettlementScene: SKScene {
     }
     
     @objc func returnToMainMenu(){
+        self.run(SKAction.playSoundFileNamed("btnClick.wav", waitForCompletion: true))
         let scene = MainScene(size: self.size)
+        scene.scaleMode = .aspectFit
         let fade = SKTransition.fade(withDuration: 0.4)
         self.view?.presentScene(scene, transition: fade)
     }
     
     @objc func tryAgain(){
+        self.run(SKAction.playSoundFileNamed("btnClick.wav", waitForCompletion: true))
         let scene = GameScene(size: self.size)
+        scene.scaleMode = .aspectFit
         let fade = SKTransition.fade(withDuration: 0.4)
         self.view?.presentScene(scene, transition: fade)
     }

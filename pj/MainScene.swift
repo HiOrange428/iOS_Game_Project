@@ -38,6 +38,13 @@ class MainScene: SKScene {
         background.alpha = 0.7
         background.zPosition = -1
         
+        if let musicURL = Bundle.main.url(forResource: "inMenu", withExtension: "mp3"){
+            let BGM = SKAudioNode(url: musicURL)
+            BGM.name = "BGM"
+            BGM.autoplayLooped = true
+            self.addChild(BGM)
+        }
+        
         creatButton()
         
         self.addChild(titleLabel)
@@ -46,32 +53,38 @@ class MainScene: SKScene {
     }
     func creatButton() {
         let sheet = Asset()
-        let btnPlay = FTButtonNode(normalTexture: sheet.UI_btn_play_default(), selectedTexture: sheet.UI_btn_play_selected(), disabledTexture: sheet.UI_btn_play_disabled())
-        let btnExit = FTButtonNode(normalTexture: sheet.UI_btn_exit_default(), selectedTexture: sheet.UI_btn_exit_selected(), disabledTexture: sheet.UI_btn_exit_disabled())
+        let btnPlay = FTButtonNode(normalTexture: sheet.UI_btn_default(), selectedTexture: sheet.UI_btn_selected(), disabledTexture: nil)
+        let btnExit = FTButtonNode(normalTexture: sheet.UI_btn_default(), selectedTexture: sheet.UI_btn_selected(), disabledTexture: nil)
         
         btnPlay.position = CGPoint(x: self.frame.midX + ((self.frame.minX - self.frame.midX)/2), y: self.frame.midY + ((self.frame.maxY - self.frame.midY)/4))
         btnPlay.zPosition = 10
-        btnPlay.size = CGSize(width: ((btnPlay.texture?.size().width)!)/2, height: ((btnPlay.texture?.size().height)!)/2)
+        btnPlay.size = CGSize(width: ((btnPlay.texture?.size().width)!), height: ((btnPlay.texture?.size().height)!)*0.7)
         btnPlay.name = "btnPlay"
+        btnPlay.setButtonLabel(title: "Play", font: "Silver", fontSize: 70)
         btnPlay.setButtonAction(target: self, triggerEvent: .TouchUp, action: #selector(self.play))
         
         btnExit.position = CGPoint(x: self.frame.midX + ((self.frame.minX - self.frame.midX)/2), y: self.frame.midY + ((self.frame.minY - self.frame.midY)/4))
         btnExit.zPosition = 10
-        btnExit.size = CGSize(width: ((btnExit.texture?.size().width)!)/2, height: ((btnExit.texture?.size().height)!)/2)
+        btnExit.size = CGSize(width: ((btnExit.texture?.size().width)!), height: ((btnExit.texture?.size().height)!)*0.7)
         btnExit.name = "btnExit"
+        btnExit.setButtonLabel(title: "Exit", font: "Silver", fontSize: 70)
         btnExit.setButtonAction(target: self, triggerEvent: .TouchUp, action: #selector(self.exit))
         self.addChild(btnPlay)
         self.addChild(btnExit)
     }
     @objc func play(){
-        self.run(SKAction.wait(forDuration: 0.2), completion: {
+        let sound = SKAction.playSoundFileNamed("btnPlay.wav", waitForCompletion: true)
+        self.run(SKAction.sequence([sound, SKAction.wait(forDuration: 0.2)]), completion: {
             let gameScene = GameScene(size: self.size)
             let fade = SKTransition.fade(withDuration: 0.4)
+            gameScene.scaleMode = .aspectFit
             self.view?.presentScene(gameScene, transition: fade)
         })
     }
     @objc func exit(){
         print("exit Game")
-        UIControl().sendAction(#selector(NSXPCConnection.suspend), to: UIApplication.shared, for: nil)
+        self.run(SKAction.playSoundFileNamed("btnClick.wav", waitForCompletion: true), completion: {
+            UIControl().sendAction(#selector(NSXPCConnection.suspend), to: UIApplication.shared, for: nil)
+        })
     }
 }

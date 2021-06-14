@@ -44,12 +44,14 @@ class FTButtonNode: SKSpriteNode {
         self.disabledTexture = disabledTexture
         self.label = SKLabelNode(fontNamed: "Helvetica");
         
+        
         super.init(texture: defaultTexture, color: UIColor.white, size: defaultTexture.size())
         isUserInteractionEnabled = true
         
         //Creating and adding a blank label, centered on the button
         self.label.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center;
         self.label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center;
+        self.label.zPosition = self.zPosition + 1
         addChild(self.label)
         
         // Adding this node as an empty layer. Without it the touch functions are not being called

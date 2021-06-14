@@ -171,10 +171,13 @@ class Asset {
     let GURA_SKILL_TRIDENT                = "Gura/Skill/trident"
     let GURA_HANDOUT                      = "Gura/handout"
     let GURA_TRIDENT                      = "Gura/trident"
+    let STICKER_AMELIA                    = "Sticker/Amelia"
+    let STICKER_GURA                      = "Sticker/Gura"
     let UI_BTN_CTRL_PAUSE_DEFAULT         = "UI/btn/ctrl/pause_default"
     let UI_BTN_CTRL_PAUSE_SELECTED        = "UI/btn/ctrl/pause_selected"
     let UI_BTN_CTRL_PLAY_DEFAULT          = "UI/btn/ctrl/play_default"
     let UI_BTN_CTRL_PLAY_SELECTED         = "UI/btn/ctrl/play_selected"
+    let UI_BTN_DEFAULT                    = "UI/btn/default"
     let UI_BTN_EXIT_DEFAULT               = "UI/btn/exit/default"
     let UI_BTN_EXIT_DISABLED              = "UI/btn/exit/disabled"
     let UI_BTN_EXIT_SELECTED              = "UI/btn/exit/selected"
@@ -184,6 +187,7 @@ class Asset {
     let UI_BTN_PLAY_DEFAULT               = "UI/btn/play/default"
     let UI_BTN_PLAY_DISABLED              = "UI/btn/play/disabled"
     let UI_BTN_PLAY_SELECTED              = "UI/btn/play/selected"
+    let UI_BTN_SELECTED                   = "UI/btn/selected"
     let UI_HEALTHBARFRAME                 = "UI/healthBarFrame"
     let UI_HEALTHBARREMAINING             = "UI/healthBarRemaining"
     let UI_SKILLICON_ATKBUFF              = "UI/skillIcon/atkBuff"
@@ -379,10 +383,13 @@ class Asset {
     func Gura_Skill_trident() -> SKTexture                { return textureAtlas.textureNamed(GURA_SKILL_TRIDENT) }
     func Gura_handout() -> SKTexture                      { return textureAtlas.textureNamed(GURA_HANDOUT) }
     func Gura_trident() -> SKTexture                      { return textureAtlas.textureNamed(GURA_TRIDENT) }
+    func Sticker_Amelia() -> SKTexture                    { return textureAtlas.textureNamed(STICKER_AMELIA) }
+    func Sticker_Gura() -> SKTexture                      { return textureAtlas.textureNamed(STICKER_GURA) }
     func UI_btn_ctrl_pause_default() -> SKTexture         { return textureAtlas.textureNamed(UI_BTN_CTRL_PAUSE_DEFAULT) }
     func UI_btn_ctrl_pause_selected() -> SKTexture        { return textureAtlas.textureNamed(UI_BTN_CTRL_PAUSE_SELECTED) }
     func UI_btn_ctrl_play_default() -> SKTexture          { return textureAtlas.textureNamed(UI_BTN_CTRL_PLAY_DEFAULT) }
     func UI_btn_ctrl_play_selected() -> SKTexture         { return textureAtlas.textureNamed(UI_BTN_CTRL_PLAY_SELECTED) }
+    func UI_btn_default() -> SKTexture                    { return textureAtlas.textureNamed(UI_BTN_DEFAULT) }
     func UI_btn_exit_default() -> SKTexture               { return textureAtlas.textureNamed(UI_BTN_EXIT_DEFAULT) }
     func UI_btn_exit_disabled() -> SKTexture              { return textureAtlas.textureNamed(UI_BTN_EXIT_DISABLED) }
     func UI_btn_exit_selected() -> SKTexture              { return textureAtlas.textureNamed(UI_BTN_EXIT_SELECTED) }
@@ -392,6 +399,7 @@ class Asset {
     func UI_btn_play_default() -> SKTexture               { return textureAtlas.textureNamed(UI_BTN_PLAY_DEFAULT) }
     func UI_btn_play_disabled() -> SKTexture              { return textureAtlas.textureNamed(UI_BTN_PLAY_DISABLED) }
     func UI_btn_play_selected() -> SKTexture              { return textureAtlas.textureNamed(UI_BTN_PLAY_SELECTED) }
+    func UI_btn_selected() -> SKTexture                   { return textureAtlas.textureNamed(UI_BTN_SELECTED) }
     func UI_healthBarFrame() -> SKTexture                 { return textureAtlas.textureNamed(UI_HEALTHBARFRAME) }
     func UI_healthBarRemaining() -> SKTexture             { return textureAtlas.textureNamed(UI_HEALTHBARREMAINING) }
     func UI_skillIcon_atkBuff() -> SKTexture              { return textureAtlas.textureNamed(UI_SKILLICON_ATKBUFF) }
@@ -662,6 +670,17 @@ class Asset {
         ]
     }
 
+    func background_set_B1013_() -> [SKTexture] {
+        return [
+            background_set_B1013_1(),
+            background_set_B1013_2(),
+            background_set_B1013_3(),
+            background_set_B1013_4(),
+            background_set_B1013_5(),
+            background_set_B1013_6()
+        ]
+    }
+    
     func background_set_B1013_p1() -> [SKTexture] {
         return [
             background_set_B1013_1(),
@@ -670,7 +689,7 @@ class Asset {
             background_set_B1013_3()
         ]
     }
-    
+
     func background_set_B1013_p2() -> [SKTexture] {
         return [
             background_set_B1013_4(),

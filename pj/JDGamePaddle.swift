@@ -77,10 +77,13 @@ class JDPaddle:SKSpriteNode
         
         let paddleSize:CGSize = CGSize(width: size.height * 0.7 , height: size.height * 0.7)
         MovingPing = SKShapeNode(circleOfRadius: paddleSize.width * 0.18)
-        MovingPing?.fillColor = UIColor.black
+        MovingPing?.fillColor = UIColor.white
+        MovingPing?.alpha = 0.6
+        MovingPing?.strokeColor = UIColor.lightGray
         MovingPing?.zPosition = 20
         PaddleBorder = SKShapeNode(circleOfRadius: paddleSize.width * 0.5 )
-        PaddleBorder?.fillColor = UIColor.clear
+        PaddleBorder?.fillColor = UIColor.lightGray
+        PaddleBorder?.alpha = 0.3
         PaddleBorder?.strokeColor = UIColor.black
         PaddleBorder?.zPosition = 20
         super.init(texture: nil, color: UIColor.clear, size: paddleSize)
@@ -164,4 +167,13 @@ class JDPaddle:SKSpriteNode
         fatalError("init(coder:) has not been implemented")
     }
     
+    func hide(){
+        self.MovingPing?.isHidden = true
+        self.PaddleBorder?.isHidden = true
+    }
+    
+    func show() {
+        self.MovingPing?.isHidden = false
+        self.PaddleBorder?.isHidden = false
+    }
 }

@@ -11,6 +11,7 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     let sheet = Asset()
+    var isStoryMode = false
     var paddle:JDGamePaddle!
     var player: Player!
     var enemies = [Enemy]()
@@ -18,7 +19,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     var boss: Boss?
     var gameUI: GameUI!
     var enemyCountInEachWave = [0, 1, 3]
-    var inBossFight: Bool = false
+    var isBossAppear: Bool = false
     var wave = 1
     var accelerationVector = CGVector(dx: 0, dy: 0)
     var settlementData = SettlementData()
@@ -32,7 +33,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     public let categoryBitMask_enemiesBullets: UInt32 = 0x1 << 4
     public let categoryBitMask_boss: UInt32 = 0x1 << 5
     public let categoryBitMask_bossAttack: UInt32 = 0x1 << 6
-    //var skill_Sprint_icon: FTButtonNode
     func getVector(vector: CGVector) {
         accelerationVector = vector
     }
@@ -64,13 +64,60 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
         self.newCloud()
         self.GenerateCloud = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(newCloud), userInfo: nil, repeats: true)
         self.gameUI = GameUI(forScene: self, forPlayer: self.player)
-        
+        if let musicURL = Bundle.main.url(forResource: "inWay", withExtension: "mp3"){
+            let BGM = SKAudioNode(url: musicURL)
+            BGM.name = "inWay"
+            BGM.autoplayLooped = true
+            self.addChild(BGM)
+        }
         self.addChild(background)
         self.addChild(moon)
+        storyMode()
         
-        createEnemy()
+    }
+    
+    func storyMode(){
+        self.isStoryMode = true
+        self.player.moveToInitPos()
+        self.gameUI.hideUI()
+        self.gameUI.showStory()
+        self.player.stopFiring()
+        self.timePassed?.invalidate()
+        
+    }
+    
+    func fightingMode(){
+        self.isStoryMode = false
+        self.gameUI.showUI()
+        self.gameUI.hideStory()
+        if isBossAppear {
+            if let musicURL = Bundle.main.url(forResource: "inBoss", withExtension: "mp3"){
+                let BGM = SKAudioNode(url: musicURL)
+                BGM.name = "inBoss"
+                BGM.autoplayLooped = true
+                self.addChild(BGM)
+            }
+            if let node = self.childNode(withName: "inWay") {
+                node.removeFromParent()
+            }
+            self.boss?.bossFight()
+        } else {
+            createEnemy()
+        }
         player.startFiring()
-        
+        self.timePassed = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timePlusOne), userInfo: nil, repeats: true)
+    }
+    
+    func clearBullet(){
+        var toRemove = [SKNode]()
+        self.children.forEach({
+            if let flag = $0.name?.hasPrefix("bullet"){
+                if flag == true{
+                    toRemove.append($0)
+                }
+            }
+        })
+        self.removeChildren(in: toRemove)
     }
     
     func createEnemy() {
@@ -92,7 +139,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     }
     
     func createBoss() {
-        print(CGPoint(x: self.frame.maxX + 60, y: self.frame.midY))
         self.boss = Boss(forScene: self, name: "gura", position: CGPoint(x: self.frame.maxX + 40, y: self.frame.midY))
     }
     
@@ -112,7 +158,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
             if contact.bodyA.categoryBitMask == categoryBitMask_enemies{
                 if let targetName = contact.bodyA.node?.name {
                     if let index = self.enemies.firstIndex(where: {$0.nodeName == targetName}){
-                        //print(self.enemies[index].nodeName)
                         if  self.enemies[index].healthBarChanging(changedValue: -self.player.bulletDamage) <= 0 {
                             enemies.remove(at: index)
                             if targetName.hasPrefix("shark") {
@@ -125,7 +170,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
             } else {
                 if let targetName = contact.bodyB.node?.name {
                     if let index = self.enemies.firstIndex(where: {$0.nodeName == targetName}){
-                        //print(self.enemies[index].nodeName)
                         if self.enemies[index].healthBarChanging(changedValue: -self.player.bulletDamage) <= 0 {
                             enemies.remove(at: index)
                             if targetName.hasPrefix("shark") {
@@ -161,10 +205,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
             if wave < (enemyCountInEachWave.count - 1){
                 self.wave += 1
                 createEnemy()
-            } else if !inBossFight {
-                print("Boss Fight")
-                self.inBossFight = true
+            } else if !isBossAppear {
                 createBoss()
+                self.isBossAppear = true
             }
         }
     }
@@ -173,7 +216,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
         self.timePassed?.invalidate()
         let scene = SettlementScene(size: self.size)
         scene.catchData(data: self.settlementData, complete: true)
-        let fade = SKTransition.fade(withDuration: 0.7)
+        let fade = SKTransition.fade(withDuration: 1)
+        scene.scaleMode = .aspectFit
         self.view?.presentScene(scene, transition: fade)
     }
     
@@ -181,7 +225,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
         self.timePassed?.invalidate()
         let scene = SettlementScene(size: self.size)
         scene.catchData(data: self.settlementData, complete: false)
-        let fade = SKTransition.fade(withDuration: 0.7)
+        let fade = SKTransition.fade(withDuration: 1)
+        scene.scaleMode = .aspectFit
         self.view?.presentScene(scene, transition: fade)
     }
     
@@ -206,41 +251,42 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     }
     
     @objc func keepMove(){
-        // TopFrameBorder
-        if (self.player.getPosition().y >= self.frame.maxY) && (accelerationVector.dy > 0) {
-            if((self.player.getPosition().x <= self.frame.minX) && (accelerationVector.dx < 0)) || ((self.player.getPosition().x >= self.frame.maxX) && (accelerationVector.dx > 0)){
-                self.player.moveBy(vector: CGVector(dx: 0, dy: 0))
-            } else {
-                self.player.moveBy(vector: CGVector(dx: accelerationVector.dx, dy: 0))
+        if isStoryMode == false {
+            // TopFrameBorder
+            if (self.player.getPosition().y >= self.frame.maxY) && (accelerationVector.dy > 0) {
+                if((self.player.getPosition().x <= self.frame.minX) && (accelerationVector.dx < 0)) || ((self.player.getPosition().x >= self.frame.maxX) && (accelerationVector.dx > 0)){
+                    self.player.moveBy(vector: CGVector(dx: 0, dy: 0))
+                } else {
+                    self.player.moveBy(vector: CGVector(dx: accelerationVector.dx, dy: 0))
+                }
             }
-        }
-        // ButtomFrameBorder
-        else if(self.player.getPosition().y <= self.frame.minY) && (accelerationVector.dy < 0) {
-            if((self.player.getPosition().x <= self.frame.minX) && (accelerationVector.dx < 0)) || ((self.player.getPosition().x >= self.frame.maxX) && (accelerationVector.dx > 0)){
-                self.player.moveBy(vector: CGVector(dx: 0, dy: 0))
-            } else {
-                self.player.moveBy(vector: CGVector(dx: accelerationVector.dx, dy: 0))
+            // ButtomFrameBorder
+            else if(self.player.getPosition().y <= self.frame.minY) && (accelerationVector.dy < 0) {
+                if((self.player.getPosition().x <= self.frame.minX) && (accelerationVector.dx < 0)) || ((self.player.getPosition().x >= self.frame.maxX) && (accelerationVector.dx > 0)){
+                    self.player.moveBy(vector: CGVector(dx: 0, dy: 0))
+                } else {
+                    self.player.moveBy(vector: CGVector(dx: accelerationVector.dx, dy: 0))
+                }
             }
-        }
-        // LeftFrameBorder
-        else if(self.player.getPosition().x <= self.frame.minX) && (accelerationVector.dx < 0) {
-            self.player.moveBy(vector: CGVector(dx: 0, dy: accelerationVector.dy))
-        }
-        // RightFrameBorder
-        else if(self.player.getPosition().x >= self.frame.maxX) && (accelerationVector.dx > 0) {
-            self.player.moveBy(vector: CGVector(dx: 0, dy: accelerationVector.dy))
-        }
-        // default
-        else {
-            self.player.moveBy(vector: accelerationVector)
-        }
-        //print(accelerationVector)
-        if accelerationVector.dx > 2.2 && self.player.currentDirection != 1{
-            self.player.flyForward()
-        } else if accelerationVector.dx < -2.2 && self.player.currentDirection != -1{
-            self.player.flyBackword()
-        } else if accelerationVector.dx < 2.2 && accelerationVector.dx > -2.2 && self.player.currentDirection != 0{
-            self.player.flyVertical()
+            // LeftFrameBorder
+            else if(self.player.getPosition().x <= self.frame.minX) && (accelerationVector.dx < 0) {
+                self.player.moveBy(vector: CGVector(dx: 0, dy: accelerationVector.dy))
+            }
+            // RightFrameBorder
+            else if(self.player.getPosition().x >= self.frame.maxX) && (accelerationVector.dx > 0) {
+                self.player.moveBy(vector: CGVector(dx: 0, dy: accelerationVector.dy))
+            }
+            // default
+            else {
+                self.player.moveBy(vector: accelerationVector)
+            }
+            if accelerationVector.dx > 2.2 && self.player.currentDirection != 1{
+                self.player.flyForward()
+            } else if accelerationVector.dx < -2.2 && self.player.currentDirection != -1{
+                self.player.flyBackword()
+            } else if accelerationVector.dx < 2.2 && accelerationVector.dx > -2.2 && self.player.currentDirection != 0{
+                self.player.flyVertical()
+            }
         }
     }
     @objc func timePlusOne(){
@@ -281,6 +327,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
         self.run(SKAction.wait(forDuration: 0.03), completion: {
             self.childNode(withName: "pause_mask")?.removeFromParent()
         })
+    }
+    
+    @objc func c_story(){
+        self.gameUI.nextScript()
     }
 }
 

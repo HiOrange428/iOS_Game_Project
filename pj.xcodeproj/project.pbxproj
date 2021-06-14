@@ -29,6 +29,18 @@
 		58618B132674B05300D27FE1 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58618B122674B05300D27FE1 /* MainScene.swift */; };
 		58618B162674B58C00D27FE1 /* Silver.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58618B152674B58C00D27FE1 /* Silver.ttf */; };
 		58618B1826750B5F00D27FE1 /* SettlementScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58618B1726750B5F00D27FE1 /* SettlementScene.swift */; };
+		58618B1A2675CA5000D27FE1 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58618B192675CA5000D27FE1 /* Story.swift */; };
+		58618B2626777AE800D27FE1 /* inWay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58618B1B26777AE700D27FE1 /* inWay.mp3 */; };
+		58618B2726777AE800D27FE1 /* Amelia_healing.wav in Resources */ = {isa = PBXBuildFile; fileRef = 58618B1C26777AE700D27FE1 /* Amelia_healing.wav */; };
+		58618B2826777AE800D27FE1 /* Amelia_buff.wav in Resources */ = {isa = PBXBuildFile; fileRef = 58618B1D26777AE700D27FE1 /* Amelia_buff.wav */; };
+		58618B2926777AE800D27FE1 /* Gura_beam.wav in Resources */ = {isa = PBXBuildFile; fileRef = 58618B1E26777AE800D27FE1 /* Gura_beam.wav */; };
+		58618B2A26777AE800D27FE1 /* Gura_summonning.wav in Resources */ = {isa = PBXBuildFile; fileRef = 58618B1F26777AE800D27FE1 /* Gura_summonning.wav */; };
+		58618B2B26777AE800D27FE1 /* Amelia_sprint.wav in Resources */ = {isa = PBXBuildFile; fileRef = 58618B2026777AE800D27FE1 /* Amelia_sprint.wav */; };
+		58618B2C26777AE800D27FE1 /* inMenu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58618B2126777AE800D27FE1 /* inMenu.mp3 */; };
+		58618B2D26777AE800D27FE1 /* btnClick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 58618B2226777AE800D27FE1 /* btnClick.wav */; };
+		58618B2E26777AE800D27FE1 /* btnPlay.wav in Resources */ = {isa = PBXBuildFile; fileRef = 58618B2326777AE800D27FE1 /* btnPlay.wav */; };
+		58618B2F26777AE800D27FE1 /* Gura_trident_explode.wav in Resources */ = {isa = PBXBuildFile; fileRef = 58618B2426777AE800D27FE1 /* Gura_trident_explode.wav */; };
+		58618B3226777D9900D27FE1 /* inBoss.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58618B3126777D9900D27FE1 /* inBoss.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +68,18 @@
 		58618B122674B05300D27FE1 /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
 		58618B152674B58C00D27FE1 /* Silver.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Silver.ttf; sourceTree = "<group>"; };
 		58618B1726750B5F00D27FE1 /* SettlementScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettlementScene.swift; sourceTree = "<group>"; };
+		58618B192675CA5000D27FE1 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		58618B1B26777AE700D27FE1 /* inWay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = inWay.mp3; sourceTree = "<group>"; };
+		58618B1C26777AE700D27FE1 /* Amelia_healing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Amelia_healing.wav; sourceTree = "<group>"; };
+		58618B1D26777AE700D27FE1 /* Amelia_buff.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Amelia_buff.wav; sourceTree = "<group>"; };
+		58618B1E26777AE800D27FE1 /* Gura_beam.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Gura_beam.wav; sourceTree = "<group>"; };
+		58618B1F26777AE800D27FE1 /* Gura_summonning.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Gura_summonning.wav; sourceTree = "<group>"; };
+		58618B2026777AE800D27FE1 /* Amelia_sprint.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Amelia_sprint.wav; sourceTree = "<group>"; };
+		58618B2126777AE800D27FE1 /* inMenu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = inMenu.mp3; sourceTree = "<group>"; };
+		58618B2226777AE800D27FE1 /* btnClick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = btnClick.wav; sourceTree = "<group>"; };
+		58618B2326777AE800D27FE1 /* btnPlay.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = btnPlay.wav; sourceTree = "<group>"; };
+		58618B2426777AE800D27FE1 /* Gura_trident_explode.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Gura_trident_explode.wav; sourceTree = "<group>"; };
+		58618B3126777D9900D27FE1 /* inBoss.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = inBoss.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +135,7 @@
 				58618B072673360A00D27FE1 /* FTButtonNode.swift */,
 				3821C039264A532400DF296D /* Enemy.swift */,
 				389228A7266596A500C75F96 /* Boss.swift */,
+				58618B192675CA5000D27FE1 /* Story.swift */,
 			);
 			path = pj;
 			sourceTree = "<group>";
@@ -119,6 +144,17 @@
 			isa = PBXGroup;
 			children = (
 				58618B0E2674ABA200D27FE1 /* decide18.wav */,
+				58618B1D26777AE700D27FE1 /* Amelia_buff.wav */,
+				58618B1C26777AE700D27FE1 /* Amelia_healing.wav */,
+				58618B2026777AE800D27FE1 /* Amelia_sprint.wav */,
+				58618B2226777AE800D27FE1 /* btnClick.wav */,
+				58618B2326777AE800D27FE1 /* btnPlay.wav */,
+				58618B1E26777AE800D27FE1 /* Gura_beam.wav */,
+				58618B1F26777AE800D27FE1 /* Gura_summonning.wav */,
+				58618B2426777AE800D27FE1 /* Gura_trident_explode.wav */,
+				58618B2126777AE800D27FE1 /* inMenu.mp3 */,
+				58618B3126777D9900D27FE1 /* inBoss.mp3 */,
+				58618B1B26777AE700D27FE1 /* inWay.mp3 */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -181,15 +217,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58618B2A26777AE800D27FE1 /* Gura_summonning.wav in Resources */,
+				58618B2B26777AE800D27FE1 /* Amelia_sprint.wav in Resources */,
+				58618B3226777D9900D27FE1 /* inBoss.mp3 in Resources */,
 				3861203626426B30003BDCF8 /* Main.storyboard in Resources */,
+				58618B2726777AE800D27FE1 /* Amelia_healing.wav in Resources */,
+				58618B2C26777AE800D27FE1 /* inMenu.mp3 in Resources */,
 				3861202D26426B30003BDCF8 /* GameScene.sks in Resources */,
 				58618B0B26735AE600D27FE1 /* Asset.atlasc in Resources */,
 				389228902664DA0800C75F96 /* background_city_sunset.jpg in Resources */,
 				3861203826426B31003BDCF8 /* Assets.xcassets in Resources */,
+				58618B2826777AE800D27FE1 /* Amelia_buff.wav in Resources */,
+				58618B2D26777AE800D27FE1 /* btnClick.wav in Resources */,
 				58618B162674B58C00D27FE1 /* Silver.ttf in Resources */,
+				58618B2F26777AE800D27FE1 /* Gura_trident_explode.wav in Resources */,
 				3861203B26426B31003BDCF8 /* LaunchScreen.storyboard in Resources */,
+				58618B2926777AE800D27FE1 /* Gura_beam.wav in Resources */,
 				3861202F26426B30003BDCF8 /* Actions.sks in Resources */,
 				58618B0F2674ABA200D27FE1 /* decide18.wav in Resources */,
+				58618B2626777AE800D27FE1 /* inWay.mp3 in Resources */,
+				58618B2E26777AE800D27FE1 /* btnPlay.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +256,7 @@
 				58618B112674ABB500D27FE1 /* EnterScene.swift in Sources */,
 				389228A8266596A500C75F96 /* Boss.swift in Sources */,
 				3861202B26426B30003BDCF8 /* AppDelegate.swift in Sources */,
+				58618B1A2675CA5000D27FE1 /* Story.swift in Sources */,
 				380CB39A26451E98004088B7 /* Player.swift in Sources */,
 				58618B132674B05300D27FE1 /* MainScene.swift in Sources */,
 				58618B062673260E00D27FE1 /* GameUI.swift in Sources */,

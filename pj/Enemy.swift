@@ -52,7 +52,6 @@ class Enemy {
     }
     
     func loadTexture(){
-        print(enemyType)
         switch enemyType {
         case EnemyType.bat:
             self.enemy = SKSpriteNode(texture: sheet.Enemy_Bat_1(),size: self.textureSize)
@@ -153,6 +152,5 @@ class Enemy {
         self.newBullet(dx: -800, dy: 200)
         self.newBullet(dx: -800, dy: -200)
         self.newBullet(dx: -800, dy: 0)
-        //print(nodeName)
     }
 }

@@ -13,7 +13,7 @@ class Player {
     let sheet = Asset()
     let player: SKSpriteNode!
     let toRender: GameScene
-    let bodyBitBox = CGSize(width: 30, height: 51)
+    let bodyBitBox = CGSize(width: 28, height: 49.5)
     let textureSize = CGSize(width: 60, height: 60)
     var fire: Timer?
     var isFiring: Bool
@@ -30,8 +30,8 @@ class Player {
         self.player.run(textureCycle, withKey: "Without_Gun")
         player.alpha = 1
         player.name = "player"
-        player.position = CGPoint(x: scene.frame.midX, y: scene.frame.midY)
-        player.physicsBody = SKPhysicsBody(rectangleOf:self.bodyBitBox)
+        player.position = CGPoint(x: self.toRender.frame.midX - self.toRender.frame.width / 4, y: self.toRender.frame.midY)
+        player.physicsBody = SKPhysicsBody(rectangleOf:self.bodyBitBox, center: CGPoint(x: 0, y: -1.3))
         player.physicsBody?.categoryBitMask = self.toRender.categoryBitMask_player
         player.physicsBody?.collisionBitMask = self.toRender.categoryBitMask_player
         player.physicsBody?.contactTestBitMask = self.toRender.categoryBitMask_player | self.toRender.categoryBitMask_enemiesBullets | self.toRender.categoryBitMask_bossAttack
@@ -101,6 +101,11 @@ class Player {
         self.player.run(textureCycle, withKey: "Without_Gun")
     }
     
+    func moveToInitPos(){
+        let initPos = CGPoint(x: self.toRender.frame.midX - self.toRender.frame.width / 4, y: self.toRender.frame.midY)
+        player.run(SKAction.move(to: initPos, duration: 0.1))
+    }
+    
     func flyForward(){
         self.currentDirection = 1
         if isFiring{
@@ -122,7 +127,6 @@ class Player {
             stopFiring()
         }
     }
-    
     
     func flyVertical(){
         self.currentDirection = 0
@@ -148,7 +152,6 @@ class Player {
     func shadowSprint(){
         let dx = self.toRender.accelerationVector.dx
         let dy = self.toRender.accelerationVector.dy
-        print("dx:\(dx) dy:\(dy)")
         let length = sqrt(dx*dx+dy*dy)
         let distance: CGFloat = 125
         let effect = SKSpriteNode(texture: sheet.Amelia_Skill_Sprint_1(), size: CGSize(width: 200, height: 200))
@@ -157,19 +160,18 @@ class Player {
         effect.position = CGPoint(x: 0, y: 0)
         effect.zPosition = 21
         effect.name = "sprint_effect"
-        effect.run(textureCycle, completion: {effect.removeFromParent()})
+        let sound = SKAction.playSoundFileNamed("Amelia_sprint.wav", waitForCompletion: false)
+        effect.run(SKAction.sequence([textureCycle, sound]), completion: {effect.removeFromParent()})
         player.addChild(effect)
         if length < 0.1{
             let destination = CGPoint(x: player.position.x + 100, y: player.position.y)
             if destination.x > self.toRender.frame.maxX {
                 let vector = CGVector(dx: self.toRender.frame.maxX - player.position.x, dy: 0)
                 let moveAction = SKAction.move(by: vector, duration: 0.02)
-                print("SS>X_triggered")
                 self.player.run(moveAction)
             } else {
                 let vector = CGVector(dx: 100, dy: 0)
                 let moveAction = SKAction.move(by: vector, duration: 0.02)
-                print("SS_triggered")
                 self.player.run(moveAction)
             }
         } else {
@@ -178,27 +180,22 @@ class Player {
             case 0:
                 let vector = CGVector(dx: dx/length*distance, dy: dy/length*distance)
                 let moveAction = SKAction.move(by: vector, duration: 0.02)
-                print("SS_triggered")
                 self.player.run(moveAction)
             case 1:
                 let vector = CGVector(dx: self.toRender.frame.maxX - player.position.x, dy: dy / dx * (self.toRender.frame.maxX - player.position.x))
                 let moveAction = SKAction.move(by: vector, duration: 0.02)
-                print("SS>X_triggered")
                 self.player.run(moveAction)
             case 2:
                 let vector = CGVector(dx: self.toRender.frame.minX - player.position.x, dy: dy / dx * ( self.toRender.frame.minX - player.position.x))
                 let moveAction = SKAction.move(by: vector, duration: 0.02)
-                print("SS<X_triggered")
                 self.player.run(moveAction)
             case 3:
                 let vector = CGVector(dx: dx / dy * (self.toRender.frame.maxY - player.position.y), dy:self.toRender.frame.maxY - player.position.y)
                 let moveAction = SKAction.move(by: vector, duration: 0.02)
-                print("SS>Y_triggered")
                 self.player.run(moveAction)
             case 4:
                 let vector = CGVector(dx: dx / dy * (self.toRender.frame.minY - player.position.y), dy: self.toRender.frame.minY -  player.position.y)
                 let moveAction = SKAction.move(by: vector, duration: 0.02)
-                print("SS<Y_triggered")
                 self.player.run(moveAction)
             default:
                 break
@@ -258,10 +255,11 @@ class Player {
     }
     
     func healing(){
+        let sound = SKAction.playSoundFileNamed("Amelia_healing.wav", waitForCompletion: false)
+        self.player.run(sound)
         self.healthChanging(changedValue: 800)
         print("H_triggered")
         self.toRender.gameUI.disableSkill(type: .Healing)
-        
     }
     
     func buff(){
@@ -274,7 +272,8 @@ class Player {
         effect.position = CGPoint(x: 0, y: 0)
         effect.zPosition = 21
         effect.name = "buff_effect"
-        effect.run(textureCycle, withKey: "buff_aura")
+        let sound = SKAction.playSoundFileNamed("Amelia_buff.wav", waitForCompletion: false)
+        effect.run(SKAction.sequence([textureCycle, sound]), withKey: "buff_aura")
         print("Buff_triggered")
         self.toRender.gameUI.disableSkill(type: .Buff)
         player.addChild(effect)

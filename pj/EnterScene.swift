@@ -40,6 +40,7 @@ class EnterScene: SKScene {
         labelNode.run(moveSequence, completion: {
             let scene = MainScene(size: self.size)
             let fade = SKTransition.fade(withDuration: 0.4)
+            scene.scaleMode = .aspectFit
             self.view?.presentScene(scene, transition: fade)
         })
     }
