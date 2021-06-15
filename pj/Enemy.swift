@@ -74,7 +74,10 @@ class Enemy {
         } else {
             moveInToScreen = SKAction.move(by: CGVector(dx: -100,dy: 0), duration: 2)
         }
-        enemy!.run(moveInToScreen, completion: {self.fire = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.enemyFire), userInfo: nil, repeats: true)})
+        enemy!.run(moveInToScreen, completion: {
+            self.fire = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.enemyFire), userInfo: nil, repeats: true)
+            self.moveCycle()
+        })
         self.toRender.addChild(self.enemy!)
     }
     
@@ -141,6 +144,15 @@ class Enemy {
             distroyed()
         }
         return newHP
+    }
+    
+    func moveCycle(){
+        let moveUp1 = SKAction.moveBy(x: 0, y: self.toRender.frame.height/16, duration: 1)
+        let moveDown1 = SKAction.moveBy(x: 0, y: -self.toRender.frame.height/16, duration: 1)
+        let moveUp2 = SKAction.moveBy(x: 0, y: self.toRender.frame.height/8, duration: 2)
+        let moveDown2 = SKAction.moveBy(x: 0, y: -self.toRender.frame.height/8, duration: 2)
+        let cycle = SKAction.repeatForever(SKAction.sequence([moveDown2, moveUp2]))
+        self.enemy?.run(SKAction.sequence([moveUp1, cycle]))
     }
     
     func distroyed() {

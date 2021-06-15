@@ -69,11 +69,11 @@ class SettlementScene: SKScene {
         damageAbsorbedLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY - self.frame.height*(2/9))
         damageAbsorbedLabel.alpha = 0
         
-        let ani_fadeIn = SKAction.fadeIn(withDuration: 0.5)
+        let ani_fadeIn = SKAction.fadeIn(withDuration: 0.4)
         
         timeLabel.run(SKAction.sequence([SKAction.wait(forDuration: 1.7), ani_fadeIn]))
-        damageDealedLabel.run(SKAction.sequence([SKAction.wait(forDuration: 2.6), ani_fadeIn]))
-        damageAbsorbedLabel.run(SKAction.sequence([SKAction.wait(forDuration: 3.5), ani_fadeIn]), completion: {
+        damageDealedLabel.run(SKAction.sequence([SKAction.wait(forDuration: 2.4), ani_fadeIn]))
+        damageAbsorbedLabel.run(SKAction.sequence([SKAction.wait(forDuration: 3.1), ani_fadeIn]), completion: {
             self.createBtn()
         })
         

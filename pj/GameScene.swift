@@ -18,7 +18,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
     let enemiesDamage: CGFloat = 200
     var boss: Boss?
     var gameUI: GameUI!
-    var enemyCountInEachWave = [0, 1, 3]
+    var enemyCountInEachWave = [0, 2, 3]
     var isBossAppear: Bool = false
     var wave = 1
     var accelerationVector = CGVector(dx: 0, dy: 0)
@@ -83,7 +83,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, JDPaddleVectorDelegate {
         self.gameUI.showStory()
         self.player.stopFiring()
         self.timePassed?.invalidate()
-        
     }
     
     func fightingMode(){

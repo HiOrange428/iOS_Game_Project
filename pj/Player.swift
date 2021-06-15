@@ -17,11 +17,11 @@ class Player {
     let textureSize = CGSize(width: 60, height: 60)
     var fire: Timer?
     var isFiring: Bool
-    let healthPointMaxValue: CGFloat = 2000
-    var healthPoint: CGFloat = 2000
+    let healthPointMaxValue: CGFloat = 3000
+    var healthPoint: CGFloat = 3000
     var bulletDamage: CGFloat = 500
     var currentDirection = 0
-    
+    var isInvincible = false
     
     init(forScene scene:SKScene){
         toRender = scene as! GameScene
@@ -71,6 +71,9 @@ class Player {
     }
     
     func healthChanging(changedValue: CGFloat) -> CGFloat{
+        if isInvincible && changedValue <= 0{
+            return self.healthPoint
+        }
         var newHP = self.healthPoint + changedValue
         if newHP > self.healthPointMaxValue { newHP = self.healthPointMaxValue }
         self.toRender.gameUI.healthBarChanging(newHP: newHP)
@@ -161,8 +164,12 @@ class Player {
         effect.zPosition = 21
         effect.name = "sprint_effect"
         let sound = SKAction.playSoundFileNamed("Amelia_sprint.wav", waitForCompletion: false)
-        effect.run(SKAction.sequence([textureCycle, sound]), completion: {effect.removeFromParent()})
+        effect.run(SKAction.sequence([textureCycle, sound]), completion: {
+            effect.removeFromParent()
+            self.isInvincible = false
+        })
         player.addChild(effect)
+        self.isInvincible = true
         if length < 0.1{
             let destination = CGPoint(x: player.position.x + 100, y: player.position.y)
             if destination.x > self.toRender.frame.maxX {

@@ -167,11 +167,10 @@ class GameUI {
             let width = (self.healthBarRemaining.texture?.size().width)!
             
             self.healthBarRemaining.run(SKAction.resize(toWidth: width * (newHP / healthPointMaxValue), duration: 0.1))
-            //self.healthBarRemaining.run(SKAction.colorize(with: UIColor.green, colorBlendFactor: 1, duration: 0.1))
-            if newHP < 500 {
+            if newHP < 750 {
                 self.healthBarRemaining.color = UIColor.red
                 self.healthBarRemaining.run(SKAction.colorize(with: UIColor.red, colorBlendFactor: 1, duration: 0))
-            } else if newHP < 1200 {
+            } else if newHP < 1700 {
                 self.healthBarRemaining.color = UIColor.yellow
                 self.healthBarRemaining.run(SKAction.colorize(with: UIColor.yellow, colorBlendFactor: 1, duration: 0))
             } else {
