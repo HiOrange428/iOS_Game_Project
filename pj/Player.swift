@@ -40,13 +40,16 @@ class Player {
         
         isFiring = false
     }
+    
     func moveBy(vector: CGVector){
         let moveAction = SKAction.move(by: vector, duration: 0.03)
         self.player.run(moveAction)
     }
+    
     func getPosition() ->CGPoint {
         return self.player.position
     }
+    
     func newBullet(){
         let bullet = SKShapeNode()
         bullet.path = CGPath(rect: CGRect(x: -4, y: -2, width: 8, height: 4), transform: nil)
@@ -87,6 +90,7 @@ class Player {
         }
         return newHP
     }
+    
     func startFiring(){
         self.fire = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(self.playerFire), userInfo: nil, repeats: true)
         self.isFiring = true
@@ -95,6 +99,7 @@ class Player {
         let textureCycle = SKAction.repeatForever(SKAction.animate(with: self.sheet.Amelia_Normal(), timePerFrame: 0.1))
         self.player.run(textureCycle, withKey: "Normal")
     }
+    
     func stopFiring(){
         fire?.invalidate()
         self.isFiring = false
